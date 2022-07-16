@@ -1,0 +1,82 @@
+@media (prefers-color-scheme: dark) {
+    html {
+      color-scheme: dark;
+    }
+  }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    font-family: Roboto,Noto,Helvetica,Arial,Microsoft YaHei,sans-serif;
+}
+
+header {
+    background-color: rgb(255 255 255 / 70%);
+    box-shadow: 0 0.125rem 2rem rgb(193 159 168 / 50%);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    height: 56px;
+    position: fixed;
+    z-index: 50;
+    width: 100%;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+}
+
+.site-logo {
+    display: flex;
+    width: 220px;
+    height: 56px;
+    align-items: center;
+}
+
+.site-logo img {
+    width: 100%;
+}
+
+footer {
+    background-color: var(--brand-background-light);
+    height: 50px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--footer-text);
+}
+
+.moe-banner {
+    height: 10vw;
+    position: relative;
+    z-index: 0;
+    min-height: 155px;
+    max-height: 240px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.moe-banner-image {
+    background-image: url(../img/banner-20220717.png);
+    position: absolute;
+    height: 10vw;
+    margin: 0 auto;
+    min-width: 1000px;
+    min-height: 155px;
+    max-height: 240px;
+    width: 100%;
+    background-color: var(--gray-1);
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: cover;
+    top: 0;
+}
