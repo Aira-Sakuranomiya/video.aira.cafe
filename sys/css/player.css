@@ -1,0 +1,6 @@
+.player-page h1 {
+    color: var(--text-main);
+    font-size: 24px;
+    font-weight: normal;
+    margin-top: 50px;
+}
