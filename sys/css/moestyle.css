@@ -23,7 +23,7 @@ header {
     position: fixed;
     z-index: 50;
     width: 100%;
-    padding: 0 24px;
+    padding: 0 24px 0 0;
     display: flex;
     align-items: center;
 }
@@ -32,6 +32,7 @@ header {
     display: flex;
     width: 220px;
     height: 56px;
+    padding: 0 24px;
     align-items: center;
 }
 
@@ -99,7 +100,7 @@ footer a {
     display: flex;
     align-items: center;
     padding: 0;
-    margin: 0 0 0 96px;
+    margin: 0 0 0 80px;
 }
 
 .nav-menu li {
