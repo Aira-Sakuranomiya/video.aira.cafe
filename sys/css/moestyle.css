@@ -60,6 +60,11 @@ footer a {
     text-decoration: none;
     font-size: 14px;
     color: var(--footer-text);
+    transition: color .2s;
+}
+
+footer a:hover {
+    color: var(--brand-color);
 }
 
 .moe-banner {
