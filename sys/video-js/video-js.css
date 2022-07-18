@@ -924,7 +924,7 @@ body.vjs-full-window {
 }
 
 .video-js .vjs-load-progress {
-  background: var(--brand-color-light);
+  background: transparent;
   border-radius: 3em;
 }
 
