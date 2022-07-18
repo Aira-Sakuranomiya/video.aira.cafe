@@ -785,7 +785,7 @@ body.vjs-full-window {
   visibility: visible;
   opacity: 0;
   pointer-events: none;
-  transition: visibility 1s, opacity 1s;
+  transition: visibility .3s, opacity .3s;
 }
 
 .vjs-controls-disabled .vjs-control-bar,
@@ -985,7 +985,7 @@ body.vjs-full-window {
 .video-js.vjs-user-inactive .vjs-progress-control .vjs-mouse-display {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 1s, opacity 1s;
+  transition: visibility .3s, opacity .3s;
 }
 
 .video-js.vjs-user-inactive.vjs-no-flex .vjs-progress-control .vjs-mouse-display {
@@ -1049,7 +1049,7 @@ body.vjs-full-window {
 }
 
 .video-js .vjs-volume-panel {
-  transition: width 1s;
+  transition: width .3s;
 }
 .video-js .vjs-volume-panel.vjs-hover .vjs-volume-control, .video-js .vjs-volume-panel:active .vjs-volume-control, .video-js .vjs-volume-panel:focus .vjs-volume-control, .video-js .vjs-volume-panel .vjs-volume-control:active, .video-js .vjs-volume-panel.vjs-hover .vjs-mute-control ~ .vjs-volume-control, .video-js .vjs-volume-panel .vjs-volume-control.vjs-slider-active {
   visibility: visible;
@@ -1078,11 +1078,11 @@ body.vjs-full-window {
   height: 8em;
   width: 3em;
   left: -3000em;
-  transition: visibility 1s, opacity 1s, height 1s 1s, width 1s 1s, left 1s 1s, top 1s 1s;
+  transition: visibility .3s, opacity .3s, height .3s .3s, width .3s .3s, left .3s .3s, top .3s .3s;
 }
 
 .video-js .vjs-volume-panel .vjs-volume-control.vjs-volume-horizontal {
-  transition: visibility 1s, opacity 1s, height 1s 1s, width 1s, left 1s 1s, top 1s 1s;
+  transition: visibility .3s, opacity .3s, height .3s .3s, width .3s, left .3s .3s, top .3s .3s;
 }
 
 .video-js.vjs-no-flex .vjs-volume-panel .vjs-volume-control.vjs-volume-horizontal {
@@ -1236,7 +1236,7 @@ body.vjs-full-window {
 .video-js.vjs-user-inactive .vjs-volume-control .vjs-mouse-display {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 1s, opacity 1s;
+  transition: visibility .3s, opacity .3s;
 }
 
 .video-js.vjs-user-inactive.vjs-no-flex .vjs-volume-control .vjs-mouse-display {
