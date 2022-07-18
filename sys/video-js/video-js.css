@@ -915,7 +915,7 @@ body.vjs-full-window {
   border-radius: 3em;
 }
 .video-js .vjs-play-progress:before {
-  font-size: 0.9em;
+  font-size: 16px;
   position: absolute;
   right: -0.5em;
   top: -5px;
@@ -1116,30 +1116,34 @@ body.vjs-full-window {
 }
 
 .vjs-volume-bar.vjs-slider-vertical {
-  width: 0.3em;
-  height: 5em;
-  margin: 1.35em auto;
+  width: 6px;
+  height: 5.5em;
+  margin: 1.5em auto;
+  border-radius: 3em;
 }
 
 .video-js .vjs-volume-level {
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: #fff;
+  background-color: var(--brand-color);
 }
 .video-js .vjs-volume-level:before {
   position: absolute;
-  font-size: 0.9em;
+  font-size: 16px;
   z-index: 1;
 }
 
 .vjs-slider-vertical .vjs-volume-level {
-  width: 0.3em;
+  width: 6px;
+  border-radius: 3em;
 }
 .vjs-slider-vertical .vjs-volume-level:before {
   top: -0.5em;
-  left: -0.3em;
+  left: -5px;
   z-index: 1;
+  color: white;
+  text-shadow: 0 0 3px var(--brand-color);
 }
 
 .vjs-slider-horizontal .vjs-volume-level {
@@ -1166,8 +1170,8 @@ body.vjs-full-window {
   width: 3em;
   height: 8em;
   bottom: 8em;
-  background-color: #2B333F;
-  background-color: rgba(43, 51, 63, 0.7);
+  background-color: white;
+  border-radius: 6px 6px 0 0;
 }
 
 .video-js .vjs-volume-horizontal .vjs-menu {
