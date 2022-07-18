@@ -41,6 +41,13 @@ header {
     margin-top: 4px;
 }
 
+header .early-access {
+    margin-top: 20px; 
+    color: var(--brand-color); 
+    user-select: none;
+    font-family: var(--font-mono);
+}
+
 footer {
     background-color: var(--brand-background-light);
     height: 100px;

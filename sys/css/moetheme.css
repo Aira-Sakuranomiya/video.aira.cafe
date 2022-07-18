@@ -6,4 +6,5 @@
     --gray-1: #fafafa;
     --text-main: #3f4346;
     --text-gray: #999;
+    --font-mono: 'JetBrains Mono','Ubuntu Mono','Cascadia Code PL','Menlo','Consolas','Monaco','Noto Mono','Nimbus Mono L','Courier New','Noto Sans CJK SC','Noto Sans SC','WenQuanYi Micro Hei','Microsoft YaHei UI','Microsoft YaHei','Noto Sans CJK TC','Noto Sans TC','Noto Sans CJK JP','Noto Sans JP',monospace,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
 }
