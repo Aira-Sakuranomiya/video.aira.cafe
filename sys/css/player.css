@@ -4,3 +4,17 @@
     font-weight: normal;
     margin-top: 50px;
 }
+
+.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.video-js.vjs-fullscreen.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+#main-video-player {
+    box-shadow: 0 0 8px #e2e2e2;
+}

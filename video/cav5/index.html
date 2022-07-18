@@ -13,9 +13,12 @@
     <link rel="stylesheet" href="/sys/css/moetheme.css">
     <link rel="stylesheet" href="/sys/css/moestyle.css">
     <link rel="stylesheet" href="/sys/css/player.css">
+    <link rel="stylesheet" href="/sys/video-js/video-js.css">
     <script defer src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+    <!--script defer src="/sys/video-js/video.js"></script-->
     <script defer src="//cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js"></script>
     <script defer src="/sys/js/main.js"></script>
+    <script defer src="/sys/js/player.js"></script>
 </head>
 <body>
     <header>
@@ -29,30 +32,30 @@
 
     <div class="primary-menu">
         <ul class="nav-menu">
-            <li class="home mdui-ripple">
-                <a href="/">
+            <li class="nav-tab-home">
+                <a href="/" title="受耶~">
                     <i class="mdui-icon material-icons">home</i>
                     <div class="nav-name">首页</div>
                 </a>
             </li>
-            <li class="douga mdui-ripple">
-                <a href="/category/douga">
+            <li class="nav-tab-douga">
+                <a href="/category/douga" title="啊你妹!">
                     <div class="nav-number">
                         <span>X</span>
                     </div>
                     <div class="nav-name">动画</div>
                 </a>
             </li>
-            <li class="music mdui-ripple">
-                <a href="/category/music">
+            <li class="nav-tab-music">
+                <a href="/category/music" title="音le">
                     <div class="nav-number">
                         <span>X</span>
                     </div>
                     <div class="nav-name">音乐</div>
                 </a>
             </li>
-            <li class="otomad mdui-ripple">
-                <a href="/category/otomad">
+            <li class="nav-tab-otomad">
+                <a href="/category/otomad" title="音骂德">
                     <div class="nav-number">
                         <span>X</span>
                     </div>
@@ -70,6 +73,15 @@
         <h1>柴又</h1>
 
 
+        <video
+            id="main-video-player"
+            class="video-js"
+            controls
+            preload="auto"
+            poster="cover.png"
+            data-setup="{}"
+        >
+        <source style="display: none; visibility: hidden;" src="//otomad.wiki/sakuranomiya/cav5.mp4" type="video/mp4" />
 
 
     </div>
