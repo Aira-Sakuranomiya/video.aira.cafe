@@ -4,5 +4,4 @@ var player = videojs('main-video-player', {
         inline: false
       }
     },
-  });
-
+});
