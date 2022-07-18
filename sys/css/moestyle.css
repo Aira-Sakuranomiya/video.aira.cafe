@@ -43,12 +43,17 @@ header {
 
 footer {
     background-color: var(--brand-background-light);
-    height: 50px;
+    height: 100px;
     bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 100px;
+}
+
+footer p {
+    display: flex;
+    justify-content: center;
 }
 
 footer a {
