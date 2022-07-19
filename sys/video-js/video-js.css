@@ -1030,6 +1030,7 @@ body.vjs-full-window {
   /* Non-prefixed version, currently supported by Chrome and Opera */
   user-select: none;
   background-color: var(--brand-background-light);
+  border-radius: 3em;
 }
 
 .video-js .vjs-slider.disabled {
