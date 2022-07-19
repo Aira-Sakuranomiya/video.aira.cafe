@@ -48,6 +48,57 @@ header .early-access {
     font-family: var(--font-mono);
 }
 
+#header-upload {
+    position: absolute;
+    height: 3.75em;
+    width: 4.9em;
+    background-color: #fb7299;
+    background-image: -webkit-gradient(linear,right top,left top,from(#ff77b0),to(#fb7299));
+    background-image: linear-gradient(-90deg,#ff77b0 0%,#fb7299 100%);
+    float: right;
+    margin-top: 0;
+    right: 3em;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 4px 8px rgb(251 114 153 / 30%);
+    color: white !important;
+    line-height: 62px;
+    text-align: center;
+    display: block;
+    user-select: none;
+    cursor: wait;
+}
+
+#header-upload::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    border-radius: 0 0 6px 6px;
+    transition: background-color 200ms;
+    background-color: transparent;
+}
+
+#header-upload:hover::before, #header-upload:focus-visible::before {
+    background-color: rgba(255,255,255,0.3);
+}
+
+#header-upload:active::before {
+    background-color: rgba(0,0,0,0.3);
+}
+
+#header-upload:hover, #header-upload:focus-visible {
+    background-color: #fa9bb6;
+    box-shadow: 0 9px 9px rgb(251 114 153 / 30%);
+    transition: box-shadow 200ms,background-color 200ms;
+}
+
+#header-upload:active {
+    background-color: #bd5774;
+    box-shadow: 0 0 0 rgb(251 114 153 / 30%);
+    transition: box-shadow 200ms,background-color 200ms;
+}
+
 footer {
     background-color: var(--brand-background-light);
     height: 100px;
