@@ -22,8 +22,17 @@
   font-weight: normal;
   font-style: normal;
 }
-.vjs-icon-play:before, .video-js .vjs-play-control .vjs-icon-placeholder:before, .video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+.vjs-icon-play:before, .video-js .vjs-play-control .vjs-icon-placeholder:before {
   content: "\f101";
+  font-size: 3em;
+  line-height: 1.04;
+  text-indent: -2px;
+}
+
+.video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+  content: "\f101";
+  font-size: 2em;
+  line-height: 1;
 }
 
 .vjs-icon-play-circle {
@@ -42,6 +51,9 @@
 }
 .vjs-icon-pause:before, .video-js .vjs-play-control.vjs-playing .vjs-icon-placeholder:before {
   content: "\f103";
+  font-size: 2.5em;
+  line-height: 1.24;
+  text-indent: 0;
 }
 
 .vjs-icon-volume-mute, .video-js .vjs-mute-control.vjs-vol-0 .vjs-icon-placeholder {
@@ -223,6 +235,9 @@
 }
 .vjs-icon-replay:before, .video-js .vjs-play-control.vjs-ended .vjs-icon-placeholder:before {
   content: "\f116";
+  font-size: 2.5em;
+  line-height: 1.3;
+  text-indent: 0;
 }
 
 .vjs-icon-facebook {
@@ -763,8 +778,8 @@ body.vjs-full-window {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 3em;
-  color: var(--text-main);
+  height: 30px;
+  color: var(--player-icon);
   /*transform: translateY(3em);*/
   background-color: white;
 }
@@ -821,8 +836,8 @@ body.vjs-full-window {
 }
 
 .vjs-button > .vjs-icon-placeholder:before {
-  font-size: 1.8em;
-  line-height: 1.67;
+  font-size: 2em;
+  line-height: 1.5;
 }
 
 .vjs-button > .vjs-icon-placeholder {

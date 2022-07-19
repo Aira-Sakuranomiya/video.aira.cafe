@@ -18,3 +18,32 @@
 #main-video-player {
     box-shadow: 0 0 8px #e2e2e2;
 }
+
+.video-js .vjs-time-control, .video-js .vjs-duration, .vjs-no-flex .vjs-duration {
+    display: block;
+}
+
+.video-js .vjs-remaining-time {
+    display: none;
+}
+
+.video-js .vjs-time-control {
+    min-width: unset;
+    padding-left: 4px;
+    padding-right: 4px;
+    order: 2;
+}
+
+.video-js .vjs-button:hover {
+    background-color: var(--hover-background);
+    color: var(--player-icon-hover);
+}
+
+.video-js .vjs-button {
+    transition: background-color .2s, color .2s;
+}
+
+.video-js .vjs-progress-holder .vjs-play-progress, .video-js .vjs-progress-holder .vjs-load-progress, .video-js .vjs-progress-holder .vjs-load-progress div, .vjs-volume-bar.vjs-slider-vertical .vjs-volume-level, .video-js .vjs-progress-control .vjs-mouse-display, .video-js .vjs-volume-control .vjs-mouse-display {
+    transition: width .2s, height .2s, left .2s, right .2s, bottom .2s, top .2s;
+    transition-timing-function: cubic-bezier(0.08, 0.6, 0.16, 1);
+}
