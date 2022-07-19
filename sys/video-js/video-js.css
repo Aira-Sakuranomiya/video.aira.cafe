@@ -825,7 +825,7 @@ body.vjs-full-window {
   margin: 0;
   padding: 0;
   height: 100%;
-  width: 4em;
+  width: 30px;
   flex: none;
 }
 
@@ -836,8 +836,8 @@ body.vjs-full-window {
 }
 
 .vjs-button > .vjs-icon-placeholder:before {
-  font-size: 2em;
-  line-height: 1.5;
+  font-size: 1.9em;
+  line-height: 1.6;
 }
 
 .vjs-button > .vjs-icon-placeholder {
@@ -1079,7 +1079,7 @@ body.vjs-full-window {
   margin-right: 0;
 }
 .video-js .vjs-volume-panel.vjs-hover .vjs-volume-control.vjs-volume-vertical, .video-js .vjs-volume-panel:active .vjs-volume-control.vjs-volume-vertical, .video-js .vjs-volume-panel:focus .vjs-volume-control.vjs-volume-vertical, .video-js .vjs-volume-panel .vjs-volume-control:active.vjs-volume-vertical, .video-js .vjs-volume-panel.vjs-hover .vjs-mute-control ~ .vjs-volume-control.vjs-volume-vertical, .video-js .vjs-volume-panel .vjs-volume-control.vjs-slider-active.vjs-volume-vertical {
-  left: -3.5em;
+  left: -3em;
   transition: left 0s;
 }
 .video-js .vjs-volume-panel.vjs-volume-panel-horizontal.vjs-hover, .video-js .vjs-volume-panel.vjs-volume-panel-horizontal:active, .video-js .vjs-volume-panel.vjs-volume-panel-horizontal.vjs-slider-active {
@@ -1171,7 +1171,7 @@ body.vjs-full-window {
 }
 
 .video-js .vjs-volume-panel.vjs-volume-panel-vertical {
-  width: 4em;
+  width: 30px;
 }
 
 .vjs-volume-bar.vjs-slider-vertical .vjs-volume-level {
@@ -1385,6 +1385,7 @@ body.vjs-full-window {
 
 .video-js .vjs-play-control {
   cursor: pointer;
+  width: 40px;
 }
 
 .video-js .vjs-play-control .vjs-icon-placeholder {

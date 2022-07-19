@@ -12,17 +12,12 @@
     <link rel="stylesheet" href="//cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css"/>
     <link rel="stylesheet" href="/sys/css/moetheme.css">
     <link rel="stylesheet" href="/sys/css/moestyle.css">
-    <link rel="stylesheet" href="/sys/css/player.css">
     <link rel="stylesheet" href="/sys/video-js/video-js.css">
-    <script defer src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
-    <script defer src="//otomad.wiki/sakuranomiya/video.js"></script>
-    <script defer src="//cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js"></script>
-    <script defer src="/sys/js/main.js"></script>
-    <script defer src="/sys/js/player.js"></script>
+    <link rel="stylesheet" href="/sys/css/player.css">
 </head>
 <body>
     <header>
-        <a href="" class="site-logo mdui-ripple">
+        <a href="/" class="site-logo mdui-ripple">
             <img src="/sys/img/logo01.png" title="萌樱弹幕视频网">
         </a>
         <p class="early-access">Early Access</p>
@@ -74,15 +69,9 @@
         <h1>きゅうくらりん / Covered by Binkales「Kyu-kurarin」</h1>
 
 
-        <video
-        id="main-video-player"
-        class="video-js"
-        controls
-        preload="auto"
-        poster="cover.png"
-        data-setup="{}"
-        >
-        <source style="display: none; visibility: hidden;" src="video.mp4" type="video/mp4" />
+        <video id="main-video-player" class="video-js" controls preload="auto" width="1280" height="720" poster="cover.png" data-setup="{}">
+            <source src='//s1.hdslb.com/bfs/static/player/media/error.mp4' type='video/mp4'/>
+        </video>
 
 
     </div>
@@ -101,5 +90,13 @@
             </p>
         </span>
     </footer>
+
+    <script charset="utf-8" src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+    <script charset="utf-8" src="//otomad.wiki/sakuranomiya/video.js"></script>
+    <script charset="utf-8" src="/sys/js/player.js"></script>
+    <script src="//cdn.staticfile.org/video.js/7.19.2/lang/zh-Hans.js"></script>
+    <script charset="utf-8" src="//cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js"></script>
+    <script charset="utf-8" src="/sys/js/main.js"></script>
+
 </body>
 </html>
