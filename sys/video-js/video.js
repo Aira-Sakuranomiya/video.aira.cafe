@@ -13880,11 +13880,11 @@
       var playerType = this.localize(isAudio ? 'Audio Player' : 'Video Player');
       var controlText = createEl('span', {
         className: 'vjs-control-text',
-        textContent: this.localize('{1} is loading.', [playerType])
+        textContent: this.localize('加载中', [playerType])
       });
 
       var el = _Component.prototype.createEl.call(this, 'div', {
-        className: 'vjs-loading-spinner',
+        className: 'vjs-loading-spinner mdui-spinner',
         dir: 'ltr'
       });
 

@@ -104,3 +104,15 @@
     align-items: flex-end;
     height: calc(100% - 3em) !important;
 }
+
+.vjs-loading-spinner .mdui-spinner-layer {
+    border-color: #fafafa;
+}
+
+.vjs-loading-spinner .mdui-spinner-circle-clipper .mdui-spinner-circle {
+    border-width: 5px;
+}
+
+.vjs-loading-spinner {
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+}
