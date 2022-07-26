@@ -64,18 +64,68 @@
 
     <!--内容开始-->
     <div id="main-app" class="player-page">
-        
-
 
         <h1>柴又</h1>
 
-
-        <video id="main-video-player" class="video-js" controls preload="auto" width="1280" height="720" data-setup="{}">
-            <source src='//video-direct-link.vercel.app/bili.mp4?aid=670706740&bvid=BV1Fa4y1p7ra&cid=268351537' type='video/mp4'/>
-        </video>
+        <div id="moe-player-wrapper">
+            <div id="moe-player">
+                <video id="main-video-player" class="video-js" controls preload="auto" width="1280" height="720" data-setup="{}">
+                    <source src='//video-direct-link.vercel.app/bili.mp4?aid=670706740&bvid=BV1Fa4y1p7ra&cid=268351537' type='video/mp4'/>
+                </video>
+                <div id="player-right-bar">
+                    <div id="player-info">
+                            <ul id="player-info-left">
+                                <li id="player-info-watched">
+                                    <i class="mdui-icon material-icons">play_circle_filled</i>
+                                    <span>播放</span>
+                                    <span>233</span>
+                                </li>
+                                <li id="player-info-rating">
+                                    <i class="mdui-icon material-icons">thumbs_up_down</i>
+                                    <span>评分</span>
+                                    <span>233</span>
+                                </li>
+                                <li id="player-info-favorite">
+                                    <i class="mdui-icon material-icons">star</i>
+                                    <span>收藏</span>
+                                    <span>233</span>
+                                </li>
+                            </ul>
+                        <div id="player-info-buttons">
+                            <span class="player-info-button mdui-ripple" title="加一分">
+                                <i class="mdui-icon material-icons">thumb_up</i>
+                            </span>
+                            <span class="player-info-button mdui-ripple" title="减一分">
+                                <i class="mdui-icon material-icons">thumb_down</i>
+                            </span>
+                            <span class="player-info-button mdui-ripple" title="收藏">
+                                <i class="mdui-icon material-icons">star</i>
+                            </span>
+                            <span id="player-settings" class="player-info-button mdui-ripple" title="设置">
+                                <i class="mdui-icon material-icons">settings</i>
+                            </span>
+                        </div>
+                    </div>
+                    <div id="danmaku-list-title">
+                        <div id="danmaku-list-title-main">
+                            <i class="mdui-icon material-icons">comment</i>
+                            <span>弹幕</span>
+                            <span>233</span>
+                        </div>
+                        <div id="danmaku-history-trigger" class="player-info-button mdui-ripple">
+                            <i class="mdui-icon material-icons">history</i>
+                        </div>
+                    </div>
+                    <div id="danmaku-list-header">
+                        <div name="danmuku_time_menu" class="player-danmaku-btn-time mdui-ripple" orderby="stime">时间</div>
+                        <div name="danmuku_content_menu" class="player-danmaku-btn-danmaku mdui-ripple" orderby="text">弹幕内容</div>
+                        <div name="danmuku_sendtime_menu" class="player-danmaku-btn-date mdui-ripple" orderby="date">发送时间</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
-
     <!--内容结束-->
     <footer>
         <span>

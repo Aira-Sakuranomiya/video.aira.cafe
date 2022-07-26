@@ -15,8 +15,132 @@
     pointer-events: none !important;
 }
 
-#main-video-player {
+#moe-player-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+#moe-player {
     box-shadow: 0 0 8px #e2e2e2;
+    width: 1580px;
+    height: 750px;
+    display: flex;
+    overflow: hidden;
+}
+
+#player-right-bar {
+    width: 300px;
+    background-color: white;
+    overflow: hidden;
+    height: 100%;
+}
+
+#player-info {
+    position: relative;
+    border-bottom: 1px solid #f2f2f2;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px 16px;
+}
+
+#player-info i {
+    user-select: none;
+}
+
+#player-info-left {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    color: var(--player-icon);
+    display: flex;
+    justify-content: space-between;
+}
+
+#player-info-left li {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+#player-info-left li i {
+    font-size: 16px;
+    margin-right: 4px;
+}
+
+#player-info-left li span {
+    margin-right: 3px;
+}
+
+#player-info-buttons {
+    width: 100%;
+    color: var(--player-icon);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+}
+
+.player-info-button {
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color .2s, color .2s;
+    cursor: pointer;
+}
+
+.player-info-button:hover {
+    background-color: var(--hover-background);
+    color: var(--player-icon-hover);
+}
+
+#danmaku-list-container {
+    height: 100%;
+}
+
+#danmaku-list-title {
+    color: var(--player-icon);
+    user-select: none;
+    padding: 4px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#danmaku-list-title-main {
+    display: flex;
+    align-items: center;
+}
+
+#danmaku-list-title-main i, #danmaku-list-title-main span {
+    margin-right: 4px;
+}
+
+#danmaku-history-trigger {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+#danmaku-list-header {
+    font-size: 14px;
+    display: flex;
+    width: 100%;
+    display: grid;
+    grid-column: span 3;
+    grid-template-columns: repeat(3,1fr);
+}
+
+#danmaku-list-header div {
+    padding: 8px 16px;
+    user-select: none;
+    color: var(--player-icon);
+    cursor: pointer;
+}
+
+.player-danmaku-btn-date {
+    text-align: right;
 }
 
 .video-js .vjs-time-control, .video-js .vjs-duration, .vjs-no-flex .vjs-duration {
