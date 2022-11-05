@@ -1,242 +1,257 @@
 .player-page h1 {
-    color: var(--text-main);
-    font-size: 24px;
-    font-weight: normal;
-    margin-top: 50px;
+  color: var(--text-main);
+  font-size: 24px;
+  font-weight: normal;
+  margin-top: 50px;
 }
 
 .vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
-    opacity: 1 !important;
-    pointer-events: auto !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
-.video-js.vjs-fullscreen.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
-    opacity: 0 !important;
-    pointer-events: none !important;
+.video-js.vjs-fullscreen.vjs-has-started.vjs-user-inactive.vjs-playing
+  .vjs-control-bar {
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 #moe-player-wrapper {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 #moe-player {
-    box-shadow: 0 0 8px #e2e2e2;
-    width: 1580px;
-    height: 750px;
-    display: flex;
-    overflow: hidden;
+  box-shadow: 0 0 8px #e2e2e2;
+  width: 1580px;
+  height: 750px;
+  display: flex;
+  overflow: hidden;
 }
 
 #player-right-bar {
-    width: 300px;
-    background-color: white;
-    overflow: hidden;
-    height: 100%;
+  width: 300px;
+  background-color: white;
+  overflow: hidden;
+  height: 100%;
 }
 
 #player-info {
-    position: relative;
-    border-bottom: 1px solid #f2f2f2;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 4px 16px;
+  position: relative;
+  border-bottom: 1px solid #f2f2f2;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 16px;
 }
 
 #player-info i {
-    user-select: none;
+  user-select: none;
 }
 
 #player-info-left {
-    list-style: none;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    color: var(--player-icon);
-    display: flex;
-    justify-content: space-between;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  color: var(--player-icon);
+  display: flex;
+  justify-content: space-between;
 }
 
 #player-info-left li {
-    height: 30px;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
 }
 
 #player-info-left li i {
-    font-size: 16px;
-    margin-right: 4px;
+  font-size: 16px;
+  margin-right: 4px;
 }
 
 #player-info-left li span {
-    margin-right: 3px;
+  margin-right: 3px;
 }
 
 #player-info-buttons {
-    width: 100%;
-    color: var(--player-icon);
-    display: flex;
-    justify-content: space-between;
-    margin-top: 4px;
+  width: 100%;
+  color: var(--player-icon);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
 }
 
 .player-info-button {
-    padding: 8px;
-    border-radius: 50%;
-    transition: background-color .2s, color .2s;
-    cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s;
+  cursor: pointer;
 }
 
 .player-info-button:hover {
-    background-color: var(--hover-background);
-    color: var(--player-icon-hover);
+  background-color: var(--hover-background);
+  color: var(--player-icon-hover);
 }
 
 #danmaku-list-container {
-    height: 100%;
+  height: 100%;
 }
 
 #danmaku-list-title {
-    color: var(--player-icon);
-    user-select: none;
-    padding: 4px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  color: var(--player-icon);
+  user-select: none;
+  padding: 4px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #danmaku-list-title-main {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-#danmaku-list-title-main i, #danmaku-list-title-main span {
-    margin-right: 4px;
+#danmaku-list-title-main i,
+#danmaku-list-title-main span {
+  margin-right: 4px;
 }
 
 #danmaku-history-trigger {
-    font-size: 14px;
-    display: flex;
-    align-items: center;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
 }
 
 #danmaku-list-header {
-    font-size: 14px;
-    display: flex;
-    width: 100%;
-    display: grid;
-    grid-column: span 3;
-    grid-template-columns: repeat(3,1fr);
+  font-size: 14px;
+  display: flex;
+  width: 100%;
+  display: grid;
+  grid-column: span 3;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 #danmaku-list-header div {
-    padding: 8px 16px;
-    user-select: none;
-    color: var(--player-icon);
-    cursor: pointer;
+  padding: 8px 16px;
+  user-select: none;
+  color: var(--player-icon);
+  cursor: pointer;
 }
 
 .player-danmaku-btn-date {
-    text-align: right;
+  text-align: right;
 }
 
-.video-js .vjs-time-control, .video-js .vjs-duration, .vjs-no-flex .vjs-duration {
-    display: block;
+.video-js .vjs-time-control,
+.video-js .vjs-duration,
+.vjs-no-flex .vjs-duration {
+  display: block;
 }
 
 .video-js .vjs-remaining-time {
-    display: none;
+  display: none;
 }
 
 .video-js .vjs-time-control {
-    min-width: unset;
-    padding-left: 0;
-    padding-right: 6px;
-    order: 2;
+  min-width: unset;
+  padding-left: 0;
+  padding-right: 6px;
+  order: 2;
 }
 
 .video-js .vjs-button:hover {
-    background-color: var(--hover-background);
-    color: var(--player-icon-hover);
+  background-color: var(--hover-background);
+  color: var(--player-icon-hover);
 }
 
 .video-js .vjs-button {
-    transition: background-color .2s, color .2s;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-.video-js .vjs-progress-holder .vjs-play-progress, .video-js .vjs-progress-holder .vjs-load-progress, .video-js .vjs-progress-holder .vjs-load-progress div, .vjs-volume-bar.vjs-slider-vertical .vjs-volume-level, .video-js .vjs-progress-control .vjs-mouse-display, .video-js .vjs-volume-control .vjs-mouse-display {
-    transition: width .2s, height .2s, left .2s, right .2s, bottom .2s, top .2s;
-    transition-timing-function: cubic-bezier(0.08, 0.6, 0.16, 1);
+.video-js .vjs-progress-holder .vjs-play-progress,
+.video-js .vjs-progress-holder .vjs-load-progress,
+.video-js .vjs-progress-holder .vjs-load-progress div,
+.vjs-volume-bar.vjs-slider-vertical .vjs-volume-level,
+.video-js .vjs-progress-control .vjs-mouse-display,
+.video-js .vjs-volume-control .vjs-mouse-display {
+  transition: width 0.2s, height 0.2s, left 0.2s, right 0.2s, bottom 0.2s,
+    top 0.2s;
+  transition-timing-function: cubic-bezier(0.08, 0.6, 0.16, 1);
 }
 
 .vjs-playback-rate.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button {
-    order: 3;
-    width: 50px;
+  order: 3;
+  width: 50px;
 }
 
 .vjs-playback-rate .vjs-playback-rate-value {
-    font-size: 12px;
-    line-height: 2.5;
+  font-size: 12px;
+  line-height: 2.5;
 }
 
 .vjs-playback-rate .vjs-menu {
-    width: 50px;
+  width: 50px;
 }
 
-.vjs-menu li.vjs-selected, .vjs-menu li.vjs-selected:focus, .vjs-menu li.vjs-selected:hover, .js-focus-visible .vjs-menu li.vjs-selected:hover {
-    color: var(--brand-color);
+.vjs-menu li.vjs-selected,
+.vjs-menu li.vjs-selected:focus,
+.vjs-menu li.vjs-selected:hover,
+.js-focus-visible .vjs-menu li.vjs-selected:hover {
+  color: var(--brand-color);
 }
 
 .vjs-menu li {
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .vjs-menu-button-popup .vjs-menu .vjs-menu-content {
-    max-height: 32em;
-    background-color: white;
-    color: var(--text-main);
-    border-radius: 6px 6px 0 0;
-    transition: opacity .2s;
+  max-height: 32em;
+  background-color: white;
+  color: var(--text-main);
+  border-radius: 6px 6px 0 0;
+  transition: opacity 0.2s;
 }
 
 .vjs-menu-button-popup .vjs-menu .vjs-menu-content li:hover {
-    background-color: var(--hover-background);
+  background-color: var(--hover-background);
 }
 
 .vjs-poster {
-    height: calc(100% - 3em) !important;
+  height: calc(100% - 3em) !important;
 }
 
-.vjs-controls-disabled .vjs-control-bar, .vjs-using-native-controls .vjs-control-bar, .vjs-error .vjs-control-bar {
-    display: flex !important;
+.vjs-controls-disabled .vjs-control-bar,
+.vjs-using-native-controls .vjs-control-bar,
+.vjs-error .vjs-control-bar {
+  display: flex !important;
 }
 
 .vjs-error .vjs-error-display:before {
-    content: '非常抱歉 本视频可能因为以下原因导致无法正常播放';
+  content: "非常抱歉 本视频可能因为以下原因导致无法正常播放";
 }
 
 .vjs-error .vjs-error-display .vjs-modal-dialog-content {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: calc(100% - 3em) !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: calc(100% - 3em) !important;
 }
 
 .vjs-loading-spinner .mdui-spinner-layer {
-    border-color: #fafafa;
+  border-color: #fafafa;
 }
 
 .vjs-loading-spinner .mdui-spinner-circle-clipper .mdui-spinner-circle {
-    border-width: 5px;
+  border-width: 5px;
 }
 
 .vjs-loading-spinner {
-    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
 }

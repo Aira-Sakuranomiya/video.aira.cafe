@@ -1,13 +1,18 @@
 :root {
-    --brand-color: #fb7299;
-    --brand-background-light: #f1e7ea;
-    --brand-color-light: #f7b0c4;
-    --footer-text: #6c3f3f;
-    --gray-1: #fafafa;
-    --text-main: #3f4346;
-    --text-gray: #999;
-    --player-icon: #77828b;
-    --player-icon-hover: #52595e;
-    --hover-background: rgba(0, 0, 0, 0.05);
-    --font-mono: 'JetBrains Mono','Ubuntu Mono','Cascadia Code PL','Menlo','Consolas','Monaco','Noto Mono','Nimbus Mono L','Courier New','Noto Sans CJK SC','Noto Sans SC','WenQuanYi Micro Hei','Microsoft YaHei UI','Microsoft YaHei','Noto Sans CJK TC','Noto Sans TC','Noto Sans CJK JP','Noto Sans JP',monospace,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  --brand-color: #fb7299;
+  --brand-background-light: #f1e7ea;
+  --brand-color-light: #f7b0c4;
+  --footer-text: #6c3f3f;
+  --gray-1: #fafafa;
+  --text-main: #3f4346;
+  --text-gray: #999;
+  --player-icon: #77828b;
+  --player-icon-hover: #52595e;
+  --hover-background: rgba(0, 0, 0, 0.05);
+  --font-mono: "JetBrains Mono", "Ubuntu Mono", "Cascadia Code PL", "Menlo",
+    "Consolas", "Monaco", "Noto Mono", "Nimbus Mono L", "Courier New",
+    "Noto Sans CJK SC", "Noto Sans SC", "WenQuanYi Micro Hei",
+    "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK TC", "Noto Sans TC",
+    "Noto Sans CJK JP", "Noto Sans JP", monospace, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
 }
