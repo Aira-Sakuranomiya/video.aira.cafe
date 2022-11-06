@@ -19,6 +19,12 @@
     />
     <link rel="stylesheet" href="/sys/css/moetheme.css" />
     <link rel="stylesheet" href="/sys/css/moestyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
     <script
       defer
       src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js"
@@ -27,136 +33,233 @@
     <script defer src="/sys/js/main.js"></script>
   </head>
   <body>
-    <sidebar>
-      <a href="" class="site-logo mdui-ripple">
-        <img src="/sys/img/logo01.png" title="萌樱弹幕视频网" />
-      </a>
-      <p class="early-access">Early Access</p>
-      <a id="header-upload" class="mdui-ripple" title="偷♂搞">投 稿</a>
-    </sidebar>
-    <div class="moe-banner">
-      <div class="moe-banner-image"></div>
-    </div>
-
-    <div class="primary-menu">
-      <ul class="nav-menu">
-        <li class="nav-tab-home">
-          <a href="/" title="受耶~">
-            <i class="mdui-icon material-icons">home</i>
-            <div class="nav-name">首页</div>
-          </a>
-        </li>
-        <li class="nav-tab-douga">
-          <a href="/category/douga" title="啊你妹!">
-            <div class="nav-number">
-              <span>0</span>
-            </div>
-            <div class="nav-name">动画</div>
-          </a>
-        </li>
-        <li class="nav-tab-music">
-          <a href="/category/music" title="音le">
-            <div class="nav-number">
-              <span>0</span>
-            </div>
-            <div class="nav-name">音乐</div>
-          </a>
-        </li>
-        <li class="nav-tab-otomad">
-          <a href="/category/otomad" title="音骂德">
-            <div class="nav-number">
-              <span>2</span>
-            </div>
-            <div class="nav-name">音MAD</div>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <!--内容开始-->
-    <div id="main-app">
-      <div class="home-chunk">
-        <div class="home-chunk-header">
-          <i class="mdui-icon material-icons">apps</i>
-          <span>动画</span>
-        </div>
-      </div>
-
-      <div class="home-chunk">
-        <div class="home-chunk-header">
-          <i class="mdui-icon material-icons">apps</i>
-          <span>音乐</span>
-        </div>
-      </div>
-
-      <div class="home-chunk">
-        <div class="home-chunk-header">
-          <i class="mdui-icon material-icons">apps</i>
-          <span>音MAD</span>
-        </div>
-        <div class="home-newvideo-cards">
-          <!--视频-->
-          <div class="home-video-card">
-            <a class="home-video-cover-wrap" href="/video/cav5">
-              <div class="home-video-cover">
-                <div class="cover-hover"></div>
-                <img
-                  src="//i0.hdslb.com/bfs/archive/8daf975cdfb0ceeb9ccde11018f3383cef34306c.jpg"
-                  title="席八麻他"
-                />
-              </div>
-            </a>
-            <div class="home-video-text">
-              <a class="home-video-title" href="/video/cav5"> 柴又 </a>
-              <div class="home-video-info">
-                <a class="text-clickable">2号.</a>
-                <a style="margin: 0 6px; user-select: none">·</a>
-                <a>2012-09-25</a>
-              </div>
-            </div>
-          </div>
-
-          <!--视频-->
-          <div class="home-video-card">
-            <a class="home-video-cover-wrap" href="/video/cav1">
-              <div class="home-video-cover">
-                <div class="cover-hover"></div>
-                <img
-                  src="//i0.hdslb.com/bfs/archive/8c1e1a033a34235866fdcd67c30edf65ca4f84e6.jpg"
-                  title="きゅうくらりん / Covered by Binkales「Kyu-kurarin」"
-                />
-              </div>
-            </a>
-            <div class="home-video-text">
-              <a class="home-video-title" href="/video/cav1">
-                きゅうくらりん / Covered by Binkales「Kyu-kurarin」
+    <!--页面遮罩　弹窗时使用-->
+    <div class="page-cover"></div>
+    <!--登录窗-->
+    <div class="login-window">
+      <div class="login-window-left">
+        <div class="login-window-left-content">
+          <a class="login-window-title">登录</a>
+          <a class="login-window-title login-window-title-eng">Login</a>
+          <ul class="login-info">
+            <li class="login-info-email">
+              <a class="login-info-icons login-info-icons-before">
+                <i class="mdui-icon material-icons">email</i>
               </a>
-              <div class="home-video-info">
-                <a class="text-clickable">Binkales</a>
-                <a style="margin: 0 6px; user-select: none">·</a>
-                <a>2022-07-07</a>
+              <input placeholder="邮箱" id="kirakira-email" type="text" />
+            </li>
+            <li class="login-info-password">
+              <a class="login-info-icons login-info-icons-before">
+                <i class="mdui-icon material-icons">lock</i>
+              </a>
+              <input
+                id="kirakira-password"
+                type="password"
+                placeholder="密码"
+              />
+              <a class="login-info-icons login-info-icon-visibility">
+                <i class="mdui-icon material-icons">visibility</i>
+              </a>
+            </li>
+          </ul>
+          <button class="button login-button" type="button">Link Start!</button>
+          <div class="login-animation-add-scaler">
+            <div class="login-animation-add">
+              <i class="mdui-icon material-icons">add</i>
+            </div>
+          </div>
+          <div class="login-animation-avatar-mover">
+            <div class="login-animation-avatar"></div>
+          </div>
+          <div class="burst">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <div class="stripe-anim">
+            <div class="stripe-anim-line"></div>
+            <div class="stripe-anim-line"></div>
+          </div>
+          <div class="anim-welcome">欢迎回来</div>
+          <div class="anim-nickname">艾了个拉</div>
+          <div class="login-more">
+            <a>忘记密码</a>
+            <a>注册</a>
+          </div>
+        </div>
+      </div>
+      <div class="login-window-right"></div>
+    </div>
+    <!--左侧栏-->
+    <div class="sidebar">
+      <div class="sidebar-block-up">
+        <a class="sidebar-icon">
+          <i class="mdui-icon material-icons">home</i>
+        </a>
+        <a class="sidebar-icon">
+          <i class="mdui-icon material-icons">search</i>
+        </a>
+        <a class="sidebar-icon">
+          <i class="mdui-icon material-icons">history</i>
+        </a>
+        <a class="sidebar-icon">
+          <i class="mdui-icon material-icons">star</i>
+        </a>
+        <a class="sidebar-icon">
+          <i class="mdui-icon material-icons">subscriptions</i>
+        </a>
+        <a class="sidebar-icon">
+          <i class="mdui-icon material-icons">file_upload</i>
+        </a>
+      </div>
+      <div class="sidebar-block-center">
+        <p class="early-access">EARLY ACCESS</p>
+        <div class="sidebar-stripe-container">
+          <div class="sidebar-stripe"></div>
+          <div class="sidebar-stripe"></div>
+        </div>
+      </div>
+      <div class="sidebar-block-bottom">
+        <div class="sidebar-user"></div>
+        <a class="sidebar-icon">
+          <i class="mdui-icon material-icons">email</i>
+        </a>
+        <a class="sidebar-icon">
+          <i class="mdui-icon material-icons">settings</i>
+        </a>
+      </div>
+    </div>
+    <!--右侧内容开始-->
+    <div class="main-container">
+      <!--banner-->
+      <div class="moe-banner">
+        <div class="moe-banner-image"></div>
+      </div>
+      <!--分区选择-->
+      <div class="primary-menu">
+        <ul class="nav-menu">
+          <li class="nav-tab-home">
+            <a href="/" title="受耶~">
+              <i class="mdui-icon material-icons">home</i>
+              <div class="nav-name">首页</div>
+            </a>
+          </li>
+          <li class="nav-tab-douga">
+            <a href="/category/douga" title="啊你妹!">
+              <div class="nav-number">
+                <span>0</span>
+              </div>
+              <div class="nav-name">动画</div>
+            </a>
+          </li>
+          <li class="nav-tab-music">
+            <a href="/category/music" title="音le">
+              <div class="nav-number">
+                <span>0</span>
+              </div>
+              <div class="nav-name">音乐</div>
+            </a>
+          </li>
+          <li class="nav-tab-otomad">
+            <a href="/category/otomad" title="音骂德">
+              <div class="nav-number">
+                <span>2</span>
+              </div>
+              <div class="nav-name">音MAD</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!--内容开始-->
+      <div id="main-app">
+        <div class="home-chunk">
+          <div class="home-chunk-header">
+            <i class="mdui-icon material-icons">apps</i>
+            <span>动画</span>
+          </div>
+        </div>
+
+        <div class="home-chunk">
+          <div class="home-chunk-header">
+            <i class="mdui-icon material-icons">apps</i>
+            <span>音乐</span>
+          </div>
+        </div>
+
+        <div class="home-chunk">
+          <div class="home-chunk-header">
+            <i class="mdui-icon material-icons">apps</i>
+            <span>音MAD</span>
+          </div>
+          <div class="home-newvideo-cards">
+            <!--视频-->
+            <div class="home-video-card">
+              <a class="home-video-cover-wrap" href="/video/cav5">
+                <div class="home-video-cover">
+                  <div class="cover-hover"></div>
+                  <img
+                    src="//i0.hdslb.com/bfs/archive/8daf975cdfb0ceeb9ccde11018f3383cef34306c.jpg"
+                    title="席八麻他"
+                  />
+                </div>
+              </a>
+              <div class="home-video-text">
+                <a class="home-video-title" href="/video/cav5"> 柴又 </a>
+                <div class="home-video-info">
+                  <a class="text-clickable">2号.</a>
+                  <a style="margin: 0 6px; user-select: none">·</a>
+                  <a>2012-09-25</a>
+                </div>
+              </div>
+            </div>
+
+            <!--视频-->
+            <div class="home-video-card">
+              <a class="home-video-cover-wrap" href="/video/cav1">
+                <div class="home-video-cover">
+                  <div class="cover-hover"></div>
+                  <img
+                    src="//i0.hdslb.com/bfs/archive/8c1e1a033a34235866fdcd67c30edf65ca4f84e6.jpg"
+                    title="きゅうくらりん / Covered by Binkales「Kyu-kurarin」"
+                  />
+                </div>
+              </a>
+              <div class="home-video-text">
+                <a class="home-video-title" href="/video/cav1">
+                  きゅうくらりん / Covered by Binkales「Kyu-kurarin」
+                </a>
+                <div class="home-video-info">
+                  <a class="text-clickable">Binkales</a>
+                  <a style="margin: 0 6px; user-select: none">·</a>
+                  <a>2022-07-07</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!--内容结束-->
+      <footer>
+        <span>
+          <p>
+            <a
+              href="https://github.com/Aira-Sakuranomiya/video.sakuranomiya.moe"
+              >GitHub 仓库</a
+            >
+            <a style="margin: 0 10px; user-select: none"></a>
+            <a href="https://sakuranomiya.moe">论坛</a>
+            <a style="margin: 0 10px; user-select: none"></a>
+            <a href="https://space.bilibili.com/2287093">艾了个拉</a>
+          </p>
+          <p>
+            <a href="">萌樱弹幕视频网 2022 - Kawaii Forever ＼(￣▽￣)／</a>
+          </p>
+        </span>
+      </footer>
     </div>
-    <!--内容结束-->
-    <footer>
-      <span>
-        <p>
-          <a href="https://github.com/Aira-Sakuranomiya/video.sakuranomiya.moe"
-            >GitHub 仓库</a
-          >
-          <a style="margin: 0 10px; user-select: none"></a>
-          <a href="https://sakuranomiya.moe">论坛</a>
-          <a style="margin: 0 10px; user-select: none"></a>
-          <a href="https://space.bilibili.com/2287093">艾了个拉</a>
-        </p>
-        <p>
-          <a href="">萌樱弹幕视频网 2022 - Kawaii Forever ＼(￣▽￣)／</a>
-        </p>
-      </span>
-    </footer>
   </body>
 </html>

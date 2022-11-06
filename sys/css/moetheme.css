@@ -6,13 +6,20 @@
   --gray-1: #fafafa;
   --text-main: #3f4346;
   --text-gray: #999;
-  --player-icon: #77828b;
+  --player-icon: #797173;
   --player-icon-hover: #52595e;
   --hover-background: rgba(0, 0, 0, 0.05);
+  --brand-color-hover-background: rgba(251, 114, 153, 0.1);
+  --inner-color: #fafafa;
+  --inner-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.05);
+  --controls-border-radius: 4px;
+  --button-shadow: 0 4px 4px rgba(251, 114, 153, 0.3);
+  --button-shadow-hover: 0 9px 9px rgba(251, 114, 153, 0.3);
   --font-mono: "JetBrains Mono", "Ubuntu Mono", "Cascadia Code PL", "Menlo",
     "Consolas", "Monaco", "Noto Mono", "Nimbus Mono L", "Courier New",
     "Noto Sans CJK SC", "Noto Sans SC", "WenQuanYi Micro Hei",
     "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK TC", "Noto Sans TC",
     "Noto Sans CJK JP", "Noto Sans JP", monospace, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-branding: "Montserrat", sans-serif;
 }

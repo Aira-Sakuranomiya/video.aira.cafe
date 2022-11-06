@@ -6,35 +6,31 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
-  margin: 0;
+  /* margin: 0; */
   font-size: 1em;
   font-family: Roboto, Noto, Helvetica, Arial, Microsoft YaHei, sans-serif;
+  min-width: 1280px;
+  min-height: 720px;
+  height: 100%;
 }
 
-sidebar {
-  background-color: rgb(255 255 255 / 70%);
-  box-shadow: 0 0.125rem 2rem rgb(193 159 168 / 50%);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  width: 48px;
-  height: 100%;
-  position: fixed;
-  z-index: 50;
-  padding: 0 24px 0 0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
+.main-container {
+  padding-left: 48px;
+}
+
+.right-wrapper {
+  z-index: -1;
 }
 
 .site-logo {
   display: flex;
   width: 220px;
-  height: 56px;
-  padding: 0 24px;
+  height: 48px;
+  padding: 0;
   align-items: center;
   transform: rotate(-90deg);
 }
@@ -44,11 +40,582 @@ sidebar {
   margin-top: 4px;
 }
 
-sidebar .early-access {
-  margin-top: 20px;
-  color: var(--brand-color);
+.page-cover {
+  z-index: 80;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  transition: 0.3s;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.page-cover.enabled {
+  visibility: visible;
+  opacity: 1;
+}
+
+.center-window-parent {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 70;
+}
+
+.login-window {
+  width: 800px;
+  height: 400px;
+  background-color: white;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  z-index: 90;
+  box-shadow: 0px 8px 16px rgba(240, 110, 126, 0.3);
+  border-radius: 6px;
+  top: 50%;
+  left: 50%;
+  margin: -200px 0 0 -400px;
+  transform: translateY(100px);
+  display: flex;
+  overflow: hidden;
+}
+
+.login-window.enabled {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.login-window-left,
+.login-window-right {
+  width: 400px;
+}
+
+.login-window-left-content {
+  padding: 34px 45px;
+}
+
+.login-window-title {
+  font-size: 40px;
+  -webkit-user-select: none;
   user-select: none;
-  font-family: var(--font-mono);
+  font-family: var(--font-branding);
+  color: var(--brand-color);
+  font-weight: 700;
+  font-style: italic;
+}
+
+.login-window-title-eng {
+  font-size: 30px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-left: 4px;
+}
+
+.login-info {
+  margin: 0;
+  padding: 38px 0 0 0;
+}
+
+.login-info li {
+  display: flex;
+  appearance: none;
+  list-style: none;
+  margin-bottom: 25px;
+  background-color: var(--inner-color);
+  box-shadow: var(--inner-shadow);
+  border-radius: var(--controls-border-radius);
+}
+
+.login-info-icons {
+  color: var(--player-icon);
+  width: 44px;
+  height: 44px;
+  -webkit-user-select: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  pointer-events: none;
+}
+
+.login-info-icon-visibility {
+  position: unset;
+  cursor: pointer;
+  border-radius: 50%;
+  pointer-events: unset;
+  transition: background-color 0.2s;
+}
+
+.login-info-icon-visibility:hover {
+  background-color: var(--hover-background);
+}
+
+.login-info-icons i {
+  display: inline-block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+}
+
+.login-info li input {
+  appearance: none;
+  border: 0;
+  width: 310px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  text-indent: 44px;
+  transition: background 0.1s;
+}
+.login-info li input:-webkit-autofill {
+  box-shadow: var(--inner-shadow) !important;
+  border-radius: var(--controls-border-radius) !important;
+}
+
+.login-info li input#kirakira-password {
+  width: 266px;
+}
+
+.login-info li input:focus-visible,
+.login-info li input:focus {
+  outline: none;
+}
+
+.button {
+  appearance: none;
+  padding: 8px 16px;
+  color: white;
+  border: 0;
+  background-color: var(--brand-color);
+  border-radius: var(--controls-border-radius);
+  box-shadow: var(--button-shadow);
+  transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+}
+
+.button:hover {
+  box-shadow: var(--button-shadow-hover);
+}
+
+.button:active {
+  box-shadow: none;
+  transform: scale(0.95);
+}
+
+.login-more {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-more a {
+  color: var(--brand-color);
+  cursor: pointer;
+}
+
+.login-window-right {
+  background-image: url(//otomad.wiki/kawaii/banner/BG-2022031702.png);
+  background-size: cover;
+  border-radius: 0 4px 4px 0;
+}
+
+.login-button {
+  width: 310px;
+  height: 44px;
+  font-size: 16px;
+}
+
+.login-button.logining {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0, 1);
+  animation: login-animation-button 0.6s forwards cubic-bezier(0.4, 0, 0, 1);
+}
+
+@keyframes login-animation-button {
+  0% {
+    border-radius: 4px;
+    width: 310px;
+    height: 44px;
+    color: white;
+    transform: scale(1);
+  }
+  10% {
+    color: transparent;
+  }
+  100% {
+    border-radius: 50%;
+    transform: scale(4.3, 30);
+    color: transparent;
+  }
+}
+
+.login-animation-add {
+  color: white;
+  display: block;
+  transform: scale(0);
+  position: absolute;
+  top: calc(50% - 12px);
+  left: calc(50% - 12px);
+  -webkit-user-select: none;
+  user-select: none;
+  z-index: 100;
+}
+
+.login-animation-add-scaler {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.login-animation-add.logining {
+  animation: login-animation-add 0.4s forwards cubic-bezier(0.1, 0, 0, 1) 0.2s;
+}
+
+.login-animation-add-scaler.logining {
+  animation: login-animation-add-scale 0.8s forwards cubic-bezier(0.2, 0, 0, 1);
+  animation-delay: 0.4s;
+}
+
+@keyframes login-animation-add {
+  0% {
+    display: block;
+    transform: scale(0) rotate(180deg);
+  }
+  100% {
+    display: block;
+    border-radius: 50%;
+    transform: scale(3) rotate(0deg);
+  }
+}
+
+@keyframes login-animation-add-scale {
+  0% {
+    transform: scale(3);
+  }
+  100% {
+    border-radius: 50%;
+    transform: scale(69);
+  }
+}
+
+.login-animation-avatar.logining {
+  animation: login-animation-avator 0.6s forwards cubic-bezier(0.3, 0, 0, 1);
+  animation-delay: 0.54s;
+  width: 128px;
+  height: 128px;
+  position: absolute;
+  top: calc(50% - 64px);
+  left: calc(50% - 64px);
+  transform: scale(0);
+  background-color: #ecb8c7;
+  background-image: url(//otomad.wiki/images/avatars/otomad_wiki_1_l);
+  border-radius: 50%;
+  z-index: 110;
+}
+
+@keyframes login-animation-avator {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.login-animation-avatar-mover.logining {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: login-animation-avator-mover 0.6s forwards
+    cubic-bezier(0.3, 0, 0, 1);
+  animation-delay: 1s;
+}
+
+@keyframes login-animation-avator-mover {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-110px);
+  }
+}
+
+.burst.logining {
+  z-index: 105;
+  position: absolute;
+  display: block;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: calc(50% - 150px);
+  left: calc(50% - 150px);
+}
+
+.burst.logining .line {
+  position: absolute;
+  background-color: var(--brand-color);
+  position: absolute;
+  top: calc(50% - 27px);
+  left: calc(50% - 2px);
+  animation-fill-mode: both;
+  animation-duration: 0.8s;
+  animation-delay: 0.58s;
+  animation-timing-function: cubic-bezier(0.1, 0, 0, 1);
+}
+
+.burst.logining .line:nth-child(1) {
+  animation-name: burst1;
+}
+
+.burst.logining .line:nth-child(2) {
+  animation-name: burst2;
+}
+
+.burst.logining .line:nth-child(3) {
+  animation-name: burst3;
+}
+
+.burst.logining .line:nth-child(4) {
+  animation-name: burst4;
+}
+
+.burst.logining .line:nth-child(5) {
+  animation-name: burst5;
+}
+
+.burst.logining .line:nth-child(6) {
+  animation-name: burst6;
+}
+
+@keyframes burst1 {
+  0% {
+    transform: translateY(0);
+  }
+  1% {
+    width: 4px;
+    height: 54px;
+  }
+  100% {
+    width: 4px;
+    height: 54px;
+    transform: translateY(-180px) scaleY(0);
+  }
+}
+
+@keyframes burst2 {
+  0% {
+    transform: rotate(60deg) translateY(0);
+  }
+  1% {
+    width: 4px;
+    height: 54px;
+  }
+  100% {
+    width: 4px;
+    height: 54px;
+    transform: rotate(60deg) translateY(-180px) scaleY(0);
+  }
+}
+
+@keyframes burst3 {
+  0% {
+    transform: rotate(120deg) translateY(0);
+  }
+  1% {
+    width: 4px;
+    height: 54px;
+  }
+  100% {
+    width: 4px;
+    height: 54px;
+    transform: rotate(120deg) translateY(-180px) scaleY(0);
+  }
+}
+
+@keyframes burst4 {
+  0% {
+    transform: rotate(180deg) translateY(0);
+  }
+  1% {
+    width: 4px;
+    height: 54px;
+  }
+  100% {
+    width: 4px;
+    height: 54px;
+    transform: rotate(180deg) translateY(-180px) scaleY(0);
+  }
+}
+
+@keyframes burst5 {
+  0% {
+    transform: rotate(240deg) translateY(0);
+  }
+  1% {
+    width: 4px;
+    height: 54px;
+  }
+  100% {
+    width: 4px;
+    height: 54px;
+    transform: rotate(240deg) translateY(-180px) scaleY(0);
+  }
+}
+
+@keyframes burst6 {
+  0% {
+    transform: rotate(300deg) translateY(0);
+  }
+  1% {
+    width: 4px;
+    height: 54px;
+  }
+  100% {
+    width: 4px;
+    height: 54px;
+    transform: rotate(300deg) translateY(-180px) scaleY(0);
+  }
+}
+
+@keyframes name-move {
+  0% {
+    left: 70%;
+  }
+  1% {
+    opacity: 1;
+    left: 70%;
+  }
+  100% {
+    opacity: 1;
+    left: 48%;
+  }
+}
+
+.anim-welcome,
+.anim-nickname {
+  display: none;
+}
+
+.anim-welcome.logining {
+  opacity: 0;
+  display: block;
+  font-size: 24px;
+  color: var(--text-main);
+  position: absolute;
+  top: 40%;
+  left: 70%;
+  z-index: 110;
+  animation: name-move 0.7s forwards cubic-bezier(0.1, 0.5, 0, 1);
+  animation-delay: 1.05s;
+}
+
+.anim-nickname.logining {
+  display: block;
+  opacity: 0;
+  font-size: 38px;
+  font-weight: bold;
+  color: var(--text-main);
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  z-index: 110;
+  animation: name-move 0.7s forwards cubic-bezier(0.1, 0.5, 0, 1);
+  animation-delay: 1.1s;
+}
+
+.sidebar {
+  background-color: rgb(255 255 255 / 75%);
+  box-shadow: 0 0 24px rgb(251 114 153 / 30%);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  width: 48px;
+  height: 100%;
+  position: fixed;
+  z-index: 50;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 720px;
+  overflow: hidden;
+}
+
+.sidebar-block-up,
+.sidebar-block-bottom,
+.sidebar-block-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.sidebar .early-access {
+  color: var(--brand-color);
+  -webkit-user-select: none;
+  user-select: none;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: var(--font-branding);
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+}
+
+.sidebar-stripe-container {
+  transform: rotate(-33deg);
+  margin-top: 20px;
+}
+
+.sidebar-stripe {
+  width: 90px;
+  height: 8px;
+  margin-top: 12px;
+  background-color: var(--brand-color);
+}
+
+.sidebar-user {
+  width: 32px;
+  height: 32px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.sidebar-icon {
+  color: var(--player-icon);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: block;
+  user-select: none;
+  margin: 5px 0;
+  border-radius: 50%;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.sidebar-icon:hover {
+  background-color: var(--hover-background);
+}
+
+.sidebar-icon i {
+  display: inline-block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  transform: translate(-12px, 8px);
 }
 
 #header-upload {
@@ -117,7 +684,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 300px;
 }
 
 footer p {
@@ -340,4 +907,9 @@ footer a:hover {
 .text-clickable:hover {
   color: var(--brand-color);
   cursor: pointer;
+}
+
+/*Edge*/
+::-ms-reveal {
+  display: none;
 }
