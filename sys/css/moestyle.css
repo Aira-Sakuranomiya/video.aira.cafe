@@ -248,6 +248,7 @@ body {
     width: 310px;
     height: 44px;
     color: white;
+    -webkit-transform: scale(1);
     transform: scale(1);
   }
   10% {
@@ -255,6 +256,7 @@ body {
   }
   100% {
     border-radius: 50%;
+    -webkit-transform: scale(4.3, 30);
     transform: scale(4.3, 30);
     color: transparent;
   }
@@ -263,6 +265,7 @@ body {
 .login-animation-add {
   color: white;
   display: block;
+  -webkit-transform: scale(0);
   transform: scale(0);
   position: absolute;
   top: calc(50% - 12px);
@@ -290,21 +293,25 @@ body {
 @keyframes login-animation-add {
   0% {
     display: block;
+    -webkit-transform: scale(0) rotate(180deg);
     transform: scale(0) rotate(180deg);
   }
   100% {
     display: block;
     border-radius: 50%;
+    -webkit-transform: scale(0) rotate(180deg);
     transform: scale(3) rotate(0deg);
   }
 }
 
 @keyframes login-animation-add-scale {
   0% {
+    -webkit-transform: scale(3);
     transform: scale(3);
   }
   100% {
     border-radius: 50%;
+    -webkit-transform: scale(69);
     transform: scale(69);
   }
 }
@@ -326,9 +333,11 @@ body {
 
 @keyframes login-animation-avator {
   0% {
+    -webkit-transform: scale(0);
     transform: scale(0);
   }
   100% {
+    -webkit-transform: scale(1);
     transform: scale(1);
   }
 }
@@ -639,6 +648,10 @@ body {
   transition: background-color 0.2s;
 }
 
+.sidebar-icon.active {
+  color: var(--brand-color);
+}
+
 .sidebar-icon:hover {
   background-color: var(--hover-background);
 }
@@ -650,6 +663,16 @@ body {
   height: 24px;
   line-height: 24px;
   transform: translate(-12px, 8px);
+}
+
+.sidebar-indicator {
+  height: 24px;
+  width: 3px;
+  background-color: var(--brand-color);
+  border-radius: 3px 0 0 3px;
+  position: fixed;
+  left: 45px;
+  top: 21px;
 }
 
 #header-upload {

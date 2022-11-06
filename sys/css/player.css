@@ -2,7 +2,11 @@
   color: var(--text-main);
   font-size: 24px;
   font-weight: normal;
-  margin-top: 50px;
+  margin: 30px 0;
+}
+
+.player-page {
+  padding-top: 48px;
 }
 
 .vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
@@ -171,6 +175,7 @@
   transition: background-color 0.2s, color 0.2s;
 }
 
+/*
 .video-js .vjs-progress-holder .vjs-play-progress,
 .video-js .vjs-progress-holder .vjs-load-progress,
 .video-js .vjs-progress-holder .vjs-load-progress div,
@@ -180,6 +185,11 @@
   transition: width 0.2s, height 0.2s, left 0.2s, right 0.2s, bottom 0.2s,
     top 0.2s;
   transition-timing-function: cubic-bezier(0.08, 0.6, 0.16, 1);
+}
+*/
+
+.vjs-mouse-display {
+  background-color: transparent !important;
 }
 
 .vjs-playback-rate.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button {
