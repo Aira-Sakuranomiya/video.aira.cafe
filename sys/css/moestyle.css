@@ -286,7 +286,7 @@ body {
 }
 
 .login-animation-add-scaler.logining {
-  animation: login-animation-add-scale 0.8s forwards cubic-bezier(0.2, 0, 0, 1);
+  animation: login-animation-add-scale 0.9s forwards cubic-bezier(0.3, 0, 0, 1);
   animation-delay: 0.4s;
 }
 
@@ -307,7 +307,7 @@ body {
 @keyframes login-animation-add-scale {
   0% {
     -webkit-transform: scale(3);
-    transform: scale(3);
+    transform: scale(1);
   }
   100% {
     border-radius: 50%;
