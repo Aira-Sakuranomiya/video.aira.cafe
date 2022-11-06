@@ -603,6 +603,15 @@ body {
   padding: 8px 0;
 }
 
+.sidebar-logo {
+  text-decoration: none;
+  transition: filter 0.2s;
+}
+
+.sidebar-logo:hover {
+  filter: brightness(1.3);
+}
+
 .sidebar .early-access {
   color: var(--brand-color);
   -webkit-user-select: none;
