@@ -1,6 +1,7 @@
 .title {
   font-size: 3.5rem;
   animation: blinking 2s infinite ease-in alternate;
+  font-weight: 600;
 }
 
 #cover {

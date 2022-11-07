@@ -171,7 +171,7 @@ body {
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
-  margin-left: 4px;
+  margin-left: 10px;
 }
 
 @keyframes float-left {
