@@ -74,7 +74,7 @@ body {
   visibility: hidden;
   position: fixed;
   z-index: 90;
-  box-shadow: 0px 8px 16px rgba(240, 110, 126, 0.3);
+  box-shadow: 0 8px 16px rgba(240, 110, 126, 0.3);
   border-radius: 6px;
   top: 50%;
   left: 50%;
@@ -99,6 +99,39 @@ body {
   padding: 34px 45px;
 }
 
+.login-window.enabled .login-window-left {
+  /* animation: window-left-float-left 700ms cubic-bezier(0, 0, 0, 1); */
+}
+
+@property --left {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0;
+}
+
+.login-window-right {
+  --left: 6rem;
+  clip-path: polygon(var(--left) 0, 100% 0, 100% 100%, var(--left) 100%);
+  transition: --left 700ms cubic-bezier(0, 0, 0, 1);
+}
+
+.logining + .login-window-right {
+  clip-path: none;
+}
+
+.login-window.enabled .login-window-right {
+  --left: 0;
+}
+
+@keyframes window-left-float-left {
+  from {
+    margin-right: 6rem;
+  }
+  to {
+    margin-right: 0;
+  }
+}
+
 .login-window-title {
   font-size: 40px;
   -webkit-user-select: none;
@@ -107,6 +140,7 @@ body {
   color: var(--brand-color);
   font-weight: 700;
   font-style: italic;
+  display: inline-block;
 }
 
 .login-window-title-eng {
@@ -116,6 +150,34 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   margin-left: 4px;
+}
+
+@keyframes float-left {
+  from {
+    transform: translateX(3rem);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.login-window.enabled .login-info {
+  animation: float-left 500ms cubic-bezier(0, 0, 0, 1) 100ms backwards;
+}
+
+.login-window.enabled .login-window-left:not(.logining) .login-button,
+.login-window.enabled .login-more {
+  animation: float-left 500ms cubic-bezier(0, 0, 0, 1) 150ms backwards;
+}
+
+.login-window.enabled .login-window-title {
+  animation: float-left 500ms cubic-bezier(0, 0, 0, 1) 200ms backwards;
+}
+
+.login-window.enabled .login-window-title.login-window-title-eng {
+  animation-delay: 250ms;
 }
 
 .login-info {
@@ -236,9 +298,10 @@ body {
   font-size: 16px;
 }
 
-.login-button.logining {
+.logining .login-button {
   cursor: default;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0, 1);
+  /* transition: all 0.6s cubic-bezier(0.4, 0, 0, 1); */
+  transition: none;
   animation: login-animation-button 0.6s forwards cubic-bezier(0.4, 0, 0, 1);
 }
 
@@ -248,16 +311,14 @@ body {
     width: 310px;
     height: 44px;
     color: white;
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    transform: translateZ(0) scale(1);
   }
   10% {
     color: transparent;
   }
   100% {
     border-radius: 50%;
-    -webkit-transform: scale(4.3, 30);
-    transform: scale(4.3, 30);
+    transform: translateZ(0) scale(4.3, 30);
     color: transparent;
   }
 }
@@ -265,58 +326,54 @@ body {
 .login-animation-add {
   color: white;
   display: block;
-  -webkit-transform: scale(0);
   transform: scale(0);
   position: absolute;
-  top: calc(50% - 12px);
-  left: calc(50% - 12px);
   -webkit-user-select: none;
   user-select: none;
   z-index: 100;
+  background-color: white;
+  --size: 12px;
+  width: var(--size);
+  height: var(--size);
+  --thickness: 1px; /* 加号符号粗细的一半 */
+  clip-path: polygon(calc(50% - var(--thickness)) 0, calc(50% - var(--thickness)) calc(50% - var(--thickness)), 0 calc(50% - var(--thickness)), 0 calc(50% + var(--thickness)), calc(50% - var(--thickness)) calc(50% + var(--thickness)), calc(50% - var(--thickness)) 100%, calc(50% + var(--thickness)) 100%, calc(50% + var(--thickness)) calc(50% + var(--thickness)), 100% calc(50% + var(--thickness)), 100% calc(50% - var(--thickness)), calc(50% + var(--thickness)) calc(50% - var(--thickness)), calc(50% + var(--thickness)) 0);
 }
 
 .login-animation-add-scaler {
   position: absolute;
   top: 50%;
   left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.login-animation-add.logining {
-  animation: login-animation-add 0.4s forwards cubic-bezier(0.1, 0, 0, 1) 0.2s;
-}
-
-.login-animation-add-scaler.logining {
-  animation: login-animation-add-scale 0.9s forwards cubic-bezier(0.3, 0, 0, 1);
-  animation-delay: 0.4s;
+.logining .login-animation-add {
+  animation: login-animation-add 0.4s forwards cubic-bezier(0.1, 0, 0, 1) 0.2s,
+    login-animation-add-scale 0.9s forwards cubic-bezier(0.3, 0, 0, 1) 0.5s;
 }
 
 @keyframes login-animation-add {
   0% {
     display: block;
-    -webkit-transform: scale(0) rotate(180deg);
     transform: scale(0) rotate(180deg);
   }
   100% {
     display: block;
-    border-radius: 50%;
-    -webkit-transform: scale(0) rotate(180deg);
     transform: scale(3) rotate(0deg);
   }
 }
 
 @keyframes login-animation-add-scale {
   0% {
-    -webkit-transform: scale(3);
-    transform: scale(1);
+    transform: scale(3);
   }
   100% {
-    border-radius: 50%;
-    -webkit-transform: scale(69);
-    transform: scale(69);
+    transform: scale(200);
   }
 }
 
-.login-animation-avatar.logining {
+.logining .login-animation-avatar {
   animation: login-animation-avator 0.6s forwards cubic-bezier(0.3, 0, 0, 1);
   animation-delay: 0.54s;
   width: 128px;
@@ -333,22 +390,21 @@ body {
 
 @keyframes login-animation-avator {
   0% {
-    -webkit-transform: scale(0);
     transform: scale(0);
   }
   100% {
-    -webkit-transform: scale(1);
     transform: scale(1);
   }
 }
 
-.login-animation-avatar-mover.logining {
+.logining .login-animation-avatar-mover {
   position: absolute;
   top: 50%;
   left: 50%;
   animation: login-animation-avator-mover 0.6s forwards
     cubic-bezier(0.3, 0, 0, 1);
   animation-delay: 1s;
+  z-index: 110;
 }
 
 @keyframes login-animation-avator-mover {
@@ -360,56 +416,31 @@ body {
   }
 }
 
-.burst.logining {
+.logining .burst {
   z-index: 105;
   position: absolute;
   display: block;
   width: 300px;
   height: 300px;
-  position: absolute;
-  top: calc(50% - 150px);
+  top: calc(50% - 163px);
   left: calc(50% - 150px);
 }
 
-.burst.logining .line {
+.logining .burst .line {
   position: absolute;
   background-color: var(--brand-color);
-  position: absolute;
-  top: calc(50% - 27px);
-  left: calc(50% - 2px);
+  top: calc(50%);
+  left: calc(50%);
   animation-fill-mode: both;
   animation-duration: 0.8s;
   animation-delay: 0.58s;
   animation-timing-function: cubic-bezier(0.1, 0, 0, 1);
+  animation-name: burst;
 }
 
-.burst.logining .line:nth-child(1) {
-  animation-name: burst1;
-}
-
-.burst.logining .line:nth-child(2) {
-  animation-name: burst2;
-}
-
-.burst.logining .line:nth-child(3) {
-  animation-name: burst3;
-}
-
-.burst.logining .line:nth-child(4) {
-  animation-name: burst4;
-}
-
-.burst.logining .line:nth-child(5) {
-  animation-name: burst5;
-}
-
-.burst.logining .line:nth-child(6) {
-  animation-name: burst6;
-}
-
-@keyframes burst1 {
+@keyframes burst {
   0% {
-    transform: translateY(0);
+    transform: rotate(calc(var(--i) * 60deg)) translateY(0);
   }
   1% {
     width: 4px;
@@ -417,83 +448,8 @@ body {
   }
   100% {
     width: 4px;
-    height: 54px;
-    transform: translateY(-180px) scaleY(0);
-  }
-}
-
-@keyframes burst2 {
-  0% {
-    transform: rotate(60deg) translateY(0);
-  }
-  1% {
-    width: 4px;
-    height: 54px;
-  }
-  100% {
-    width: 4px;
-    height: 54px;
-    transform: rotate(60deg) translateY(-180px) scaleY(0);
-  }
-}
-
-@keyframes burst3 {
-  0% {
-    transform: rotate(120deg) translateY(0);
-  }
-  1% {
-    width: 4px;
-    height: 54px;
-  }
-  100% {
-    width: 4px;
-    height: 54px;
-    transform: rotate(120deg) translateY(-180px) scaleY(0);
-  }
-}
-
-@keyframes burst4 {
-  0% {
-    transform: rotate(180deg) translateY(0);
-  }
-  1% {
-    width: 4px;
-    height: 54px;
-  }
-  100% {
-    width: 4px;
-    height: 54px;
-    transform: rotate(180deg) translateY(-180px) scaleY(0);
-  }
-}
-
-@keyframes burst5 {
-  0% {
-    transform: rotate(240deg) translateY(0);
-  }
-  1% {
-    width: 4px;
-    height: 54px;
-  }
-  100% {
-    width: 4px;
-    height: 54px;
-    transform: rotate(240deg) translateY(-180px) scaleY(0);
-  }
-}
-
-@keyframes burst6 {
-  0% {
-    transform: rotate(300deg) translateY(0);
-  }
-  1% {
-    width: 4px;
-    height: 54px;
-  }
-  100% {
-    width: 4px;
-    height: 54px;
-    transform: rotate(300deg) translateY(-180px) scaleY(0);
+    height: 0;
+    transform: rotate(calc(var(--i) * 60deg)) translateY(-180px);
   }
 }
 
@@ -516,7 +472,7 @@ body {
   display: none;
 }
 
-.anim-welcome.logining {
+.logining .anim-welcome {
   opacity: 0;
   display: block;
   font-size: 24px;
@@ -529,7 +485,7 @@ body {
   animation-delay: 1.05s;
 }
 
-.anim-nickname.logining {
+.logining .anim-nickname {
   display: block;
   opacity: 0;
   font-size: 38px;
@@ -543,20 +499,20 @@ body {
   animation-delay: 1.1s;
 }
 
-.stripe-anim.logining {
+.logining .stripe-anim {
   transform: rotate(-33deg);
 }
 
-.stripe-anim-line.logining:nth-child(1) {
+.logining .stripe-anim-line:nth-child(1) {
   margin-top: -100px;
   margin-left: -318px;
 }
 
-.stripe-anim-line.logining:nth-child(2) {
+.logining .stripe-anim-line:nth-child(2) {
   margin-top: 150px;
 }
 
-.stripe-anim-line.logining {
+.logining .stripe-anim-line {
   width: 872px;
   height: 25px;
   background-color: var(--brand-color);
@@ -590,7 +546,11 @@ body {
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 720px;
+  /* min-height: 720px; */
+  overflow: hidden;
+}
+
+.sidebar-block-center {
   overflow: hidden;
 }
 
@@ -625,7 +585,7 @@ body {
 
 .sidebar-stripe-container {
   transform: rotate(-33deg);
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .sidebar-stripe {
