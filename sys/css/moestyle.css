@@ -493,15 +493,15 @@ body {
 
 @keyframes name-move {
   0% {
-    left: 70%;
+    transform: translateX(200px);
   }
   1% {
     opacity: 1;
-    left: 70%;
+    transform: translateX(200px);
   }
   100% {
     opacity: 1;
-    left: 48%;
+    transform: translateX(0);
   }
 }
 
@@ -517,7 +517,7 @@ body {
   color: var(--text-main);
   position: absolute;
   top: 40%;
-  left: 70%;
+  left: 48%;
   z-index: 110;
   animation: name-move 0.7s forwards cubic-bezier(0.1, 0.5, 0, 1);
   animation-delay: 1.05s;
@@ -531,7 +531,7 @@ body {
   color: var(--text-main);
   position: absolute;
   top: 50%;
-  left: 70%;
+  left: 48%;
   z-index: 110;
   animation: name-move 0.7s forwards cubic-bezier(0.1, 0.5, 0, 1);
   animation-delay: 1.1s;
@@ -802,9 +802,9 @@ footer a:hover {
   margin: 0 auto;
 }
 
-.primary-menu {
-  box-shadow: 0 3px 5px #c19fa81a;
-}
+/*.primary-menu {
+  
+}*/
 
 .nav-menu {
   list-style: none;

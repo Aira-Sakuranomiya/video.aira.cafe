@@ -26,7 +26,7 @@
 }
 
 #moe-player {
-  box-shadow: 0 0 8px #e2e2e2;
+  box-shadow: var(--player-shadow);
   width: 1580px;
   display: flex;
   overflow: hidden;
@@ -36,7 +36,7 @@
   #player-right-bar {
     display: none;
   }
-  
+
   .main-video-player-dimensions {
     height: calc((100vw - 48px) / 16 * 9 + 3em);
   }

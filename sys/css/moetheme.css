@@ -16,6 +16,7 @@
   --controls-border-radius: 4px;
   --button-shadow: 0 4px 4px #fb72994d;
   --button-shadow-hover: 0 9px 9px #fb72994d;
+  --player-shadow: 0px 2px 8px rgba(193, 159, 168, 0.2);
   --font-mono: "JetBrains Mono", "Ubuntu Mono", "Cascadia Code PL", "Menlo",
     "Consolas", "Monaco", "Noto Mono", "Nimbus Mono L", "Courier New",
     "Noto Sans CJK SC", "Noto Sans SC", "WenQuanYi Micro Hei",
