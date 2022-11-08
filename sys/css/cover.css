@@ -1,0 +1,216 @@
+.title {
+  font-size: 3.5rem;
+  animation: blinking 2s infinite ease-in alternate;
+  font-weight: 600;
+}
+
+#cover {
+  --cover-size: 400px;
+  width: var(--cover-size);
+  height: var(--cover-size);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--brand-color);
+  font-family: Montserrat, "Segoe UI", Arial, Helvetica, sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none !important;
+}
+
+#cover > * {
+  position: absolute;
+}
+
+.lines {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-32deg);
+}
+
+.lines * {
+  background-color: var(--brand-color-translucent);
+  border-radius: 9999rem;
+  --height: 1rem;
+  width: calc(var(--height) * 15);
+  height: var(--height);
+  position: absolute;
+  animation: movement 4s infinite linear;
+  --from: 100%;
+  --to: -100%;
+}
+
+.lines :nth-child(1) {
+  top: -2rem;
+  --height: 2rem;
+  animation-duration: 8s;
+}
+
+.lines :nth-child(2) {
+  top: 30%;
+  --height: 1rem;
+  --from: 300%;
+  animation-duration: 16s;
+}
+
+.lines :nth-child(3) {
+  top: 55%;
+  --height: 0.5rem;
+  --from: 550%;
+  --to: -200%;
+  animation-duration: 32s;
+}
+
+.lines :nth-child(4) {
+  top: 58%;
+  --height: 2rem;
+  --from: 150%;
+  --to: -150%;
+  animation-duration: 8s;
+}
+
+.lines :nth-child(5) {
+  bottom: 0;
+  --height: 4rem;
+  animation-duration: 6s;
+}
+
+.pluses {
+  right: 0;
+  bottom: 0.25rem;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.pluses span {
+  margin: 0 1rem;
+  animation: plus-rotation 4s ease-in-out calc(var(--i) * 0.25s) infinite;
+  display: inline-block;
+}
+
+.triangle {
+  --length: 5rem;
+  height: var(--length);
+  width: calc(var(--length) / 2 * 1.732);
+  background-color: var(--brand-color);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  animation: triangle-movement 4s cubic-bezier(0, 0.5, 1, 0.5) infinite, triangle-blinking 2s cubic-bezier(0, 0, 0, 1) infinite alternate;
+}
+
+.triangle-1 {
+  bottom: 2rem;
+  right: calc(var(--cover-size) - 40%);
+  animation-delay: -1s;
+}
+
+.triangle-2 {
+  bottom: 36%;
+  right: 4rem;
+  --length: 2rem;
+}
+
+.circle {
+  --cover-size: 8rem;
+  width: var(--cover-size);
+  height: var(--cover-size);
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.circle-1 {
+  right: -3rem;
+  top: 15%;
+  border: var(--brand-color) 2px solid;
+  animation: circle-scaling 4s cubic-bezier(0, 0, 0, 1) infinite alternate;
+}
+
+.circle-2 {
+  --cover-size: 12rem;
+  right: calc(var(--cover-size) + 5rem);
+  bottom: -3rem;
+  animation: rotation 16s linear infinite;
+}
+
+.circle-2 > * {
+  width: 100%;
+  height: 1rem;
+  background-color: var(--brand-color);
+  animation: shades 2s ease-in-out infinite alternate;
+}
+
+@keyframes movement {
+  from {
+    transform: translate(var(--from));
+  }
+  to {
+    transform: translate(var(--to));
+  }
+}
+
+@keyframes blinking {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes plus-rotation {
+  0% {
+    transform: rotateY(-360deg);
+  }
+  50%,
+  100% {
+    transform: rotateY(0);
+  }
+}
+
+@keyframes triangle-movement {
+  from {
+    transform: translate(-5rem);
+  }
+  to {
+    transform: translate(5rem);
+  }
+}
+
+@keyframes triangle-blinking {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes circle-scaling {
+  from {
+    transform: scale(0);
+    border-width: 1rem;
+  }
+  to {
+    transform: none;
+    border-width: 2px;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shades {
+  from {
+    transform: scaleY(0.7);
+  }
+  to {
+    transform: scaleY(0.3);
+  }
+}

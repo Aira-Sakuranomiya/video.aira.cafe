@@ -1,43 +1,39 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover"
-    />
-    <meta name="renderer" content="webkit" />
-    <meta name="force-rendering" content="webkit" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="referrer" content="no-referrer" />
-    <meta name="theme-color" content="#c43455" />
-    <title>Codename "Cherry" - Kawaii Forever ＼(￣▽￣)／</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link
-      rel="stylesheet"
-      href="//cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css"
-    />
-    <link rel="stylesheet" href="/sys/css/moetheme.css" />
-    <link rel="stylesheet" href="/sys/css/moestyle.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      defer
-      src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js"
-    ></script>
-    <script defer src="//cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js"></script>
-    <script defer src="/sys/js/main.js"></script>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover" />
+  <meta name="renderer" content="webkit" />
+  <meta name="force-rendering" content="webkit" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="theme-color" content="#c43455" />
+  <title>Codename "Cherry" - Kawaii Forever ＼(￣▽￣)／</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="//cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css" />
+  <link rel="stylesheet" href="/sys/css/moetheme.css" />
+  <link rel="stylesheet" href="/sys/css/moestyle.css" />
+  <link rel="stylesheet" href="/sys/video-js/video-js.css" />
+  <link rel="stylesheet" href="/sys/css/player.css" />
+  <link rel="stylesheet" href="sys/css/cover.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <!-- <script defer src="//cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script> -->
+  <script src="https://cdn.staticfile.org/vue/3.2.41/vue.global.js"></script>
+  <script defer src="//cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js"></script>
+  <script charset="utf-8" src="//otomad.wiki/sakuranomiya/video.js"></script>
+  <script src="//cdn.staticfile.org/video.js/7.19.2/lang/zh-Hans.js"></script>
+</head>
+
+<body>
+  <div id="app">
     <!--页面遮罩　弹窗时使用-->
-    <div class="page-cover"></div>
+    <div class="page-cover" :class="{ enabled: isShownLoginWindow }" @click="setIsShownLoginWindow(false)"></div>
     <!--登录窗-->
-    <div class="login-window">
-      <div class="login-window-left">
+    <div class="login-window" :class="{ enabled: isShownLoginWindow }">
+      <div class="login-window-left" :class="{ logining: isLogining }">
         <div class="login-window-left-content">
           <a class="login-window-title">登录</a>
           <a class="login-window-title login-window-title-eng">Login</a>
@@ -46,38 +42,28 @@
               <a class="login-info-icons login-info-icons-before">
                 <i class="mdui-icon material-icons">email</i>
               </a>
-              <input placeholder="邮箱" id="kirakira-email" type="text" />
+              <input placeholder="邮箱" id="kirakira-email" type="email" />
             </li>
             <li class="login-info-password">
               <a class="login-info-icons login-info-icons-before">
                 <i class="mdui-icon material-icons">lock</i>
               </a>
-              <input
-                id="kirakira-password"
-                type="password"
-                placeholder="密码"
-              />
-              <a class="login-info-icons login-info-icon-visibility">
-                <i class="mdui-icon material-icons">visibility</i>
+              <input id="kirakira-password" :type="isShownPassword ? 'text' : 'password'" placeholder="密码" />
+              <a class="login-info-icons login-info-icon-visibility mdui-ripple" @click="isShownPassword = !isShownPassword">
+                <i class="mdui-icon material-icons">{{ isShownPassword ? "visibility" : "visibility_off" }}</i>
               </a>
             </li>
           </ul>
-          <button class="button login-button" type="button">Link Start!</button>
+          <button class="button login-button mdui-ripple" type="button" @click="isLogining = true">Link Start!</button>
+          <div class="login-button-shadow"></div>
           <div class="login-animation-add-scaler">
-            <div class="login-animation-add">
-              <i class="mdui-icon material-icons">add</i>
-            </div>
+            <div class="login-animation-add"></div>
           </div>
           <div class="login-animation-avatar-mover">
             <div class="login-animation-avatar"></div>
           </div>
           <div class="burst">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
+            <div class="line" v-for="i in 6" :style="{ '--i': i - 1 }"></div>
           </div>
           <div class="stripe-anim">
             <div class="stripe-anim-line"></div>
@@ -91,7 +77,21 @@
           </div>
         </div>
       </div>
-      <div class="login-window-right"></div>
+      <div class="login-window-right" id="cover">
+        <div class="lines">
+          <div v-for="i in 5"></div>
+        </div>
+        <div class="pluses">
+          <div v-for="i in 4"><span v-for="j in 4" :style="{ '--i': i + j - 2 }">+</span></div>
+        </div>
+        <div class="triangle triangle-1"></div>
+        <div class="triangle triangle-2"></div>
+        <div class="title">KiRAKiRA☆</div>
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2">
+          <div v-for="i in 13"></div>
+        </div>
+      </div>
     </div>
     <!--左侧栏-->
     <div class="sidebar">
@@ -117,8 +117,8 @@
         <div class="sidebar-indicator"></div>
       </div>
       <div class="sidebar-block-center">
-        <a href="/" class="sidebar-logo"
-          ><p class="early-access" href="/">CODENAME "CHERRY"</p>
+        <a href="/" class="sidebar-logo">
+          <p class="early-access" href="/">CODENAME "CHERRY"</p>
         </a>
         <div class="sidebar-stripe-container">
           <div class="sidebar-stripe"></div>
@@ -126,7 +126,7 @@
         </div>
       </div>
       <div class="sidebar-block-bottom">
-        <div class="sidebar-user"></div>
+        <div class="sidebar-user" @click="setIsShownLoginWindow(true)"></div>
         <a class="sidebar-icon">
           <i class="mdui-icon material-icons">email</i>
         </a>
@@ -145,7 +145,7 @@
       <div class="primary-menu">
         <ul class="nav-menu">
           <li class="nav-tab-home">
-            <a href="/" title="受耶~">
+            <a title="受耶~" @click="backToMainpage()">
               <i class="mdui-icon material-icons">home</i>
               <div class="nav-name">首页</div>
             </a>
@@ -159,7 +159,7 @@
             </a>
           </li>
           <li class="nav-tab-music">
-            <a href="/category/music" title="音le">
+            <a href="/category/music" title="音lè">
               <div class="nav-number">
                 <span>0</span>
               </div>
@@ -178,84 +178,14 @@
       </div>
 
       <!--内容开始-->
-      <div id="main-app">
-        <div class="home-chunk">
-          <div class="home-chunk-header">
-            <i class="mdui-icon material-icons">apps</i>
-            <span>动画</span>
-          </div>
-        </div>
-
-        <div class="home-chunk">
-          <div class="home-chunk-header">
-            <i class="mdui-icon material-icons">apps</i>
-            <span>音乐</span>
-          </div>
-        </div>
-
-        <div class="home-chunk">
-          <div class="home-chunk-header">
-            <i class="mdui-icon material-icons">apps</i>
-            <span>音MAD</span>
-          </div>
-          <div class="home-newvideo-cards">
-            <!--视频-->
-            <div class="home-video-card">
-              <a class="home-video-cover-wrap" href="/video/cav5">
-                <div class="home-video-cover">
-                  <div class="cover-hover"></div>
-                  <img
-                    src="//i0.hdslb.com/bfs/archive/8daf975cdfb0ceeb9ccde11018f3383cef34306c.jpg"
-                    title="席八麻他"
-                  />
-                </div>
-              </a>
-              <div class="home-video-text">
-                <a class="home-video-title" href="/video/cav5"> 柴又 </a>
-                <div class="home-video-info">
-                  <a class="text-clickable">2号.</a>
-                  <a style="margin: 0 6px; user-select: none">·</a>
-                  <a>2012-09-25</a>
-                </div>
-              </div>
-            </div>
-
-            <!--视频-->
-            <div class="home-video-card">
-              <a class="home-video-cover-wrap" href="/video/cav1">
-                <div class="home-video-cover">
-                  <div class="cover-hover"></div>
-                  <img
-                    src="//i0.hdslb.com/bfs/archive/8c1e1a033a34235866fdcd67c30edf65ca4f84e6.jpg"
-                    title="きゅうくらりん / Covered by Binkales「Kyu-kurarin」"
-                  />
-                </div>
-              </a>
-              <div class="home-video-text">
-                <a class="home-video-title" href="/video/cav1">
-                  きゅうくらりん / Covered by Binkales「Kyu-kurarin」
-                </a>
-                <div class="home-video-info">
-                  <a class="text-clickable">Binkales</a>
-                  <a style="margin: 0 6px; user-select: none">·</a>
-                  <a>2022-07-07</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <component :is="currentPage" ref="content"></component>
+      
       <!--内容结束-->
       <footer>
         <span>
-          <p>
-            <a
-              href="https://github.com/Aira-Sakuranomiya/video.sakuranomiya.moe"
-              >GitHub 仓库</a
-            >
-            <a style="margin: 0 10px; user-select: none"></a>
+          <p class="footer-links">
+            <a href="https://github.com/Aira-Sakuranomiya/video.sakuranomiya.moe">GitHub 仓库</a>
             <a href="https://sakuranomiya.moe">论坛</a>
-            <a style="margin: 0 10px; user-select: none"></a>
             <a href="https://space.bilibili.com/2287093">艾了个拉</a>
           </p>
           <p>
@@ -264,5 +194,142 @@
         </span>
       </footer>
     </div>
-  </body>
+  </div>
+  
+  <!-- 组件们 -->
+  <template id="mainpage">
+    <div id="main-app">
+      <div class="home-chunk">
+        <div class="home-chunk-header">
+          <i class="mdui-icon material-icons">apps</i>
+          <span>动画</span>
+        </div>
+      </div>
+
+      <div class="home-chunk">
+        <div class="home-chunk-header">
+          <i class="mdui-icon material-icons">apps</i>
+          <span>音乐</span>
+        </div>
+      </div>
+
+      <div class="home-chunk">
+        <div class="home-chunk-header">
+          <i class="mdui-icon material-icons">apps</i>
+          <span>音MAD</span>
+        </div>
+        <div class="home-newvideo-cards">
+          <!--视频-->
+          <home-video-card
+            img="//i0.hdslb.com/bfs/archive/8daf975cdfb0ceeb9ccde11018f3383cef34306c.jpg"
+            title="柴又"
+            tooltip="席八麻他"
+            author="2号."
+            datetime="2012-09-25"
+            cav="5"
+          ></home-video-card>
+          
+          <home-video-card
+            img="//i0.hdslb.com/bfs/archive/8c1e1a033a34235866fdcd67c30edf65ca4f84e6.jpg"
+            title="きゅうくらりん / Covered by Binkales「Kyu-kurarin」"
+            tooltip="きゅうくらりん / Covered by Binkales「Kyu-kurarin」"
+            author="Binkales"
+            datetime="2022-07-07"
+            cav="1"
+          ></home-video-card>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+  <template id="home-video-card">
+    <div class="home-video-card" @click="watch()">
+      <a class="home-video-cover-wrap">
+        <div class="home-video-cover">
+          <div class="cover-hover"></div>
+          <img :src="img" :title="tooltip" />
+        </div>
+      </a>
+      <div class="home-video-text">
+        <a class="home-video-title">{{ title }}</a>
+        <div class="home-video-info">
+          <a class="text-clickable">{{ author }}</a>
+          <a style="margin: 0 6px; user-select: none">·</a>
+          <a>{{ datetime }}</a>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+  <!-- 播放器 -->
+  <template id="player-page">
+    <div id="main-app" class="player-page">
+      <div id="moe-player-wrapper">
+        <div id="moe-player">
+          <video id="main-video-player" class="video-js" controls preload="auto" width="1280" height="720" data-setup="{}" ref="myVideo"></video>
+          <div id="player-right-bar">
+            <div id="player-info">
+              <ul id="player-info-left">
+                <li id="player-info-watched">
+                  <i class="mdui-icon material-icons">play_circle_filled</i>
+                  <span>播放</span>
+                  <span>{{ video.watchedCount }}</span>
+                </li>
+                <li id="player-info-rating">
+                  <i class="mdui-icon material-icons">thumbs_up_down</i>
+                  <span>评分</span>
+                  <span>{{ video.ratingCount }}</span>
+                </li>
+                <li id="player-info-favorite">
+                  <i class="mdui-icon material-icons">star</i>
+                  <span>收藏</span>
+                  <span>{{ video.favoriteCount }}</span>
+                </li>
+              </ul>
+              <div id="player-info-buttons">
+                <span class="player-info-button mdui-ripple" title="加一度">
+                  <i class="mdui-icon material-icons">thumb_up</i>
+                </span>
+                <span class="player-info-button mdui-ripple" title="减一度">
+                  <i class="mdui-icon material-icons">thumb_down</i>
+                </span>
+                <span class="player-info-button mdui-ripple" title="收藏">
+                  <i class="mdui-icon material-icons">star</i>
+                </span>
+                <span id="player-settings" class="player-info-button mdui-ripple" title="设置">
+                  <i class="mdui-icon material-icons">settings</i>
+                </span>
+              </div>
+            </div>
+            <div id="danmaku-list-title">
+              <div id="danmaku-list-title-main">
+                <i class="mdui-icon material-icons">comment</i>
+                <span>弹幕</span>
+                <span>{{ video.commentCount }}</span>
+              </div>
+              <div id="danmaku-history-trigger" class="player-info-button mdui-ripple">
+                <i class="mdui-icon material-icons">history</i>
+              </div>
+            </div>
+            <div id="danmaku-list-header">
+              <div name="danmuku_time_menu" class="player-danmaku-btn-time mdui-ripple" orderby="stime">
+                时间
+              </div>
+              <div name="danmuku_content_menu" class="player-danmaku-btn-danmaku mdui-ripple" orderby="text">
+                弹幕内容
+              </div>
+              <div name="danmuku_sendtime_menu" class="player-danmaku-btn-date mdui-ripple" orderby="date">
+                发送时间
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h1>{{ video.title }}</h1>
+    </div>
+  </template>
+  
+  <script defer type="module" src="/sys/js/main.js"></script>
+</body>
+
 </html>

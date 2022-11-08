@@ -28,9 +28,18 @@
 #moe-player {
   box-shadow: 0 0 8px #e2e2e2;
   width: 1580px;
-  height: 750px;
   display: flex;
   overflow: hidden;
+}
+
+@media screen and (max-width: 1279px) {
+  #player-right-bar {
+    display: none;
+  }
+  
+  .main-video-player-dimensions {
+    height: calc((100vw - 48px) / 16 * 9 + 3em);
+  }
 }
 
 #player-right-bar {
@@ -38,6 +47,7 @@
   background-color: white;
   overflow: hidden;
   height: 100%;
+  flex-shrink: 0;
 }
 
 #player-info {
@@ -131,7 +141,6 @@
 
 #danmaku-list-header {
   font-size: 14px;
-  display: flex;
   width: 100%;
   display: grid;
   grid-column: span 3;
