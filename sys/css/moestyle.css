@@ -91,7 +91,7 @@ body {
     width: 400px;
     margin-left: -200px;
   }
-  
+
   .login-window-right {
     display: none !important;
   }
@@ -287,6 +287,8 @@ body {
   transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
   cursor: pointer;
   letter-spacing: 0.05em;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .button:hover {
@@ -359,7 +361,20 @@ body {
   width: var(--size);
   height: var(--size);
   --thickness: 1px; /* 加号符号粗细的一半 */
-  clip-path: polygon(calc(50% - var(--thickness)) 0, calc(50% - var(--thickness)) calc(50% - var(--thickness)), 0 calc(50% - var(--thickness)), 0 calc(50% + var(--thickness)), calc(50% - var(--thickness)) calc(50% + var(--thickness)), calc(50% - var(--thickness)) 100%, calc(50% + var(--thickness)) 100%, calc(50% + var(--thickness)) calc(50% + var(--thickness)), 100% calc(50% + var(--thickness)), 100% calc(50% - var(--thickness)), calc(50% + var(--thickness)) calc(50% - var(--thickness)), calc(50% + var(--thickness)) 0);
+  clip-path: polygon(
+    calc(50% - var(--thickness)) 0,
+    calc(50% - var(--thickness)) calc(50% - var(--thickness)),
+    0 calc(50% - var(--thickness)),
+    0 calc(50% + var(--thickness)),
+    calc(50% - var(--thickness)) calc(50% + var(--thickness)),
+    calc(50% - var(--thickness)) 100%,
+    calc(50% + var(--thickness)) 100%,
+    calc(50% + var(--thickness)) calc(50% + var(--thickness)),
+    100% calc(50% + var(--thickness)),
+    100% calc(50% - var(--thickness)),
+    calc(50% + var(--thickness)) calc(50% - var(--thickness)),
+    calc(50% + var(--thickness)) 0
+  );
 }
 
 .login-animation-add-scaler {
