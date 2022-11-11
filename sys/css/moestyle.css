@@ -589,6 +589,7 @@ body {
 
 .sidebar-block-center {
   overflow: hidden;
+  width: 48px;
 }
 
 .sidebar-block-up,
@@ -607,6 +608,10 @@ body {
   -moz-user-select: none;
   user-select: none;
   -webkit-user-drag: none;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sidebar-logo:hover {
@@ -628,6 +633,7 @@ body {
 .sidebar-stripe-container {
   transform: rotate(-33deg);
   margin-bottom: 20px;
+  padding-top: 12px;
 }
 
 .sidebar-stripe {
