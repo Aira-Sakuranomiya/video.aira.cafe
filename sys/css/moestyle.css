@@ -260,7 +260,8 @@ body {
   margin: 0;
   background-color: transparent;
   text-indent: 44px;
-  transition: background 0.1s;
+  transition: background-color 0.1s;
+  color: var(--player-icon);
 }
 .login-info li input:-webkit-autofill {
   box-shadow: var(--inner-shadow) !important;
