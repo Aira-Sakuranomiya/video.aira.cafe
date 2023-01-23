@@ -16,6 +16,7 @@ class Video {
   static list = {
     1: new Video("きゅうくらりん / Covered by Binkales「Kyu-kurarin」", "//video_api.kms233.com/bili/av685657049"),
     5: new Video("柴又", "//video_api.kms233.com/bili/av670706740"),
+    6: new Video("秘匿于尘世的余音~Hidden Star in All Seasons", "https://www.miaofile.com/f/89cb/2023%E5%8D%8E%E7%81%AF%E5%AE%B4%E6%9C%80%E7%BB%88%E6%80%BB%E5%90%88%E6%88%90%20LowBitrate.mp4"),
   };
 }
 
