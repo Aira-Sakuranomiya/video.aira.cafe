@@ -17,6 +17,7 @@ class Video {
     1: new Video("きゅうくらりん / Covered by Binkales「Kyu-kurarin」", "//video_api.kms233.com/bili/av685657049"),
     5: new Video("柴又", "//video_api.kms233.com/bili/av670706740"),
     6: new Video("秘匿于尘世的余音~Hidden Star in All Seasons", "https://www.miaofile.com/f/89cb/2023%E5%8D%8E%E7%81%AF%E5%AE%B4%E6%9C%80%E7%BB%88%E6%80%BB%E5%90%88%E6%88%90%20LowBitrate.mp4"),
+    7: new Video("【合作】五邑拜年祭2023 ~5!1! MEDLAY~", "https://www.miaofile.com/f/EZIQ/5e%20final%20online.mp4"),
   };
 }
 
